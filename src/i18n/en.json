@@ -1,0 +1,48 @@
+{
+    "nav": {
+        "about": "About",
+        "projects": "Projects",
+        "blog": "Blog",
+        "contact": "Contact"
+    },
+    "hero": {
+        "greeting": "Hi, I'm",
+        "name": "Oscar Crescente",
+        "title": "Mobile Developer & Product Engineer",
+        "subtitle": "End-to-end digital products. From UX/UI and backend to App Store. Flutter, React, AI-powered, no compromises.",
+        "cta_projects": "View Projects",
+        "cta_linkedin": "LinkedIn",
+        "cta_contact": "Contact Me"
+    },
+    "about": {
+        "heading": "About Me",
+        "bio1": "I deliver end-to-end digital products, covering every stage from UX/UI design and backend architecture to publishing and growth strategies. My expertise spans productivity, entertainment, fitness, finance and health applications.",
+        "bio2": "Complete development process: authentication systems, database design, API logic, intuitive UI/UX, smooth animations, and App Store deployment.",
+        "bio3": "Highly qualified in AI-powered tools and no-code accelerators, achieving elite results at exceptional speed without compromise on quality.",
+        "bio4": "Bilingual fluency in English & Spanish, with strong adaptability to any client ecosystem and workflow.",
+        "skills_heading": "Skills & Tools",
+        "resume": "Download Resume"
+    },
+    "projects": {
+        "heading": "Projects",
+        "live": "Live",
+        "code": "Code",
+        "no_projects": "Coming soon…"
+    },
+    "blog": {
+        "heading": "Latest Posts",
+        "read_more": "Read more",
+        "view_all": "View all posts",
+        "min_read": "min read"
+    },
+    "contact": {
+        "heading": "Let's work together.",
+        "subtext": "Whether you need a new product built or the right developer to build it — I can help.",
+        "email_cta": "Send me an email",
+        "whatsapp_cta": "Message me on WhatsApp"
+    },
+    "footer": {
+        "copy": "© 2026 Oscar Crescente",
+        "back_top": "Back to top"
+    }
+}

@@ -1,0 +1,48 @@
+{
+    "nav": {
+        "about": "Sobre mí",
+        "projects": "Proyectos",
+        "blog": "Blog",
+        "contact": "Contacto"
+    },
+    "hero": {
+        "greeting": "Hola, soy",
+        "name": "Oscar Crescente",
+        "title": "Desarrollador Web",
+        "subtitle": "Productos digitales de extremo a extremo. Desde UX/UI y backend hasta el App Store. Flutter, React, con IA, sin compromisos.",
+        "cta_projects": "Ver Proyectos",
+        "cta_linkedin": "LinkedIn",
+        "cta_contact": "Contáctame"
+    },
+    "about": {
+        "heading": "Sobre Mí",
+        "bio1": "Entrego productos digitales de extremo a extremo, cubriendo cada etapa desde el diseño UX/UI y la arquitectura backend hasta la publicación y estrategias de crecimiento. Mi experiencia abarca aplicaciones de productividad, entretenimiento, fitness, finanzas y salud.",
+        "bio2": "Proceso de desarrollo completo: sistemas de autenticación, diseño de base de datos, lógica de API, UI/UX intuitiva, animaciones fluidas y despliegue en App Store.",
+        "bio3": "Altamente capacitado en herramientas impulsadas por IA y aceleradores no-code, logrando resultados de élite a velocidad excepcional sin comprometer la calidad.",
+        "bio4": "Fluidez bilingüe en inglés y español, con gran adaptabilidad a cualquier ecosistema y flujo de trabajo del cliente.",
+        "skills_heading": "Habilidades y Herramientas",
+        "resume": "Descargar CV"
+    },
+    "projects": {
+        "heading": "Proyectos",
+        "live": "Ver live",
+        "code": "Código",
+        "no_projects": "Próximamente…"
+    },
+    "blog": {
+        "heading": "Últimas Entradas",
+        "read_more": "Leer más",
+        "view_all": "Ver todos los posts",
+        "min_read": "min de lectura"
+    },
+    "contact": {
+        "heading": "Trabajemos juntos.",
+        "subtext": "Si necesitas un nuevo producto construido o al desarrollador indicado para hacerlo — puedo ayudarte.",
+        "email_cta": "Envíame un email",
+        "whatsapp_cta": "Escríbeme por WhatsApp"
+    },
+    "footer": {
+        "copy": "© 2026 Oscar Crescente",
+        "back_top": "Volver arriba"
+    }
+}
