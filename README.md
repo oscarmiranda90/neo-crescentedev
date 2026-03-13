@@ -1,8 +1,8 @@
-# crescente.dev
+# crescente.dev — Neobrutalist Portfolio Template
 
-Personal portfolio of **Oscar Crescente** — Mobile Developer & Product Engineer.
+A bold, fast, bilingual developer portfolio built with React + TypeScript, styled in **neobrutalism** (thick borders, hard drop shadows, high-contrast yellow accent). Fork it, swap your info, deploy in minutes.
 
-Live at [crescente.dev](https://crescente.dev)
+Live example → [crescente.dev](https://crescente.dev)
 
 ---
 
@@ -20,6 +20,196 @@ Live at [crescente.dev](https://crescente.dev)
 
 ---
 
+## Getting Started
+
+```bash
+git clone https://github.com/oscarmiranda90/neo-crescentedev.git my-portfolio
+cd my-portfolio
+npm install
+npm run dev
+```
+
+Open [http://localhost:5173](http://localhost:5173) and you're live locally.
+
+---
+
+## Customization Guide
+
+All user-facing content lives in a small number of files. You don't need to touch any component logic.
+
+### 1. Your name, title & bio — `src/i18n/en.json` and `src/i18n/es.json`
+
+Every text string on the site is driven by these two files. Open them and replace the values:
+
+```jsonc
+// src/i18n/en.json
+{
+  "hero": {
+    "greeting": "Hi, I'm",
+    "name": "Your Name",                        // ← your name
+    "title": "Your Role Here",                  // ← e.g. "Full-Stack Developer"
+    "subtitle": "One-line pitch about what you build."
+  },
+  "about": {
+    "bio1": "First paragraph about you.",
+    "bio2": "Second paragraph.",
+    "bio3": "Third paragraph.",
+    "bio4": "Fourth paragraph."
+  },
+  "contact": {
+    "heading": "Let's work together.",
+    "subtext": "A short call-to-action line."
+  },
+  "footer": {
+    "copy": "© 2026 Your Name"                  // ← update year & name
+  }
+}
+```
+
+Mirror the same changes in `src/i18n/es.json` if you want Spanish support. If you only need one language, just keep both files identical.
+
+---
+
+### 2. Your projects — `src/data/projects.ts`
+
+Each project is an object in the `projects` array:
+
+```ts
+{
+  id: 1,
+  title: 'Your Project Name',
+  description: {
+    en: 'Short English description.',
+    es: 'Descripción en español.',             // remove if single-language
+  },
+  image: 'https://placehold.co/600x400/FDE047/000000?text=MyApp', // or a real image URL
+  liveUrl: 'https://yourproject.com',
+}
+```
+
+Use [placehold.co](https://placehold.co) for quick placeholder images, or drop real screenshots in `src/assets/` and import them.
+
+---
+
+### 3. Social links & contact — `src/components/sections/Contact.tsx`
+
+Update the `SOCIALS` array and the `mailto` / WhatsApp links:
+
+```tsx
+const SOCIALS = [
+  { label: 'GitHub',     url: 'https://github.com/yourusername' },
+  { label: 'LinkedIn',   url: 'https://linkedin.com/in/yourusername' },
+  { label: 'Twitter / X', url: 'https://x.com/yourhandle' },
+]
+
+// Email button — line ~28
+<a href="mailto:you@yourdomain.com">
+
+// WhatsApp button — line ~33 (remove this block if not needed)
+<a href="https://wa.me/1234567890">
+```
+
+---
+
+### 4. Photos — `src/assets/`
+
+Replace these two images with your own (keep the same filenames or update the imports):
+
+| File | Used in |
+|---|---|
+| `oscar_travel.png` | Hero section (right column) |
+| `oscar-portrait.png` | About section |
+
+Any format works (`.png`, `.jpg`, `.webp`). Vite will auto-optimize them.
+
+---
+
+### 5. Accent color & fonts — `tailwind.config.ts`
+
+The neobrutalist yellow is one line. Change `main` to any hex color:
+
+```ts
+colors: {
+  main: '#FDE047',      // ← your accent color (buttons, highlights, contact bg)
+  bg:   '#FFFBF0',      // ← page background
+  text: '#000000',      // ← primary text
+},
+```
+
+Fonts are loaded from Google Fonts in `index.html`. The defaults are **Space Grotesk** (body) and **Space Mono** (code/labels). Swap them by updating both the `<link>` tag in `index.html` and the `fontFamily` values in `tailwind.config.ts`.
+
+---
+
+### 6. SEO & social preview — `index.html`
+
+```html
+<meta name="description" content="Your Name — Your Role" />
+<meta property="og:title" content="yourdomain.com" />
+<meta property="og:description" content="Your Name — Your Role" />
+<meta property="og:url" content="https://yourdomain.com" />
+<meta property="og:image" content="https://yourdomain.com/og.png" />
+<meta name="twitter:image" content="https://yourdomain.com/og.png" />
+```
+
+Replace `og.png` in `public/` with your own 1200×630 banner image. If you have an SVG version, convert it to PNG (Twitter/X requires raster):
+
+```bash
+magick your-banner.svg -resize 1200x630 public/og.png
+```
+
+---
+
+### 7. Résumé / CV — `public/`
+
+Drop your PDF files here:
+
+```
+public/cv_en.pdf   ← served when site language is English
+public/cv_es.pdf   ← served when site language is Spanish
+```
+
+If you only have one CV, put the same file under both names. The About section "Download Resume" button automatically picks the right one based on the active language.
+
+---
+
+### 8. Favicon — `public/favicon.svg`
+
+Replace `public/favicon.svg` with your own icon. SVG favicons are supported by all modern browsers.
+
+---
+
+## Deployment
+
+### Cloudflare Workers (recommended — free tier)
+
+1. Install and authenticate Wrangler:
+   ```bash
+   npm install -g wrangler
+   wrangler login
+   ```
+2. Edit `wrangler.toml` — update the `name` and `routes` to your domain:
+   ```toml
+   name = "my-portfolio"
+
+   [[routes]]
+   pattern = "yourdomain.com"
+   custom_domain = true
+   ```
+3. Deploy:
+   ```bash
+   npm run deploy
+   ```
+
+### Any static host (Netlify, Vercel, GitHub Pages)
+
+```bash
+npm run build   # outputs to /dist
+```
+
+Point your host to the `dist/` folder. The site is a standard SPA — make sure to configure **all routes to serve `index.html`** (404 fallback).
+
+---
+
 ## Project Structure
 
 ```
@@ -27,59 +217,39 @@ src/
 ├── components/
 │   ├── layout/       # Navbar, Footer
 │   ├── sections/     # Hero, About, Projects, BlogPreview, Contact
-│   ├── stars/        # Decorative SVG star components
+│   ├── stars/        # Decorative SVG star shapes
 │   └── ui/           # Button, Badge, Card, Accordion, ImageCard
-├── data/             # Static project data
-├── i18n/             # en.json / es.json translations
-├── pages/            # Home, Blog, BlogPost, RibEye (+ Privacy & Terms)
+├── data/
+│   └── projects.ts   # ← your projects list
+├── i18n/
+│   ├── en.json       # ← English copy
+│   └── es.json       # ← Spanish copy
+├── pages/            # Route-level pages
 └── lib/              # Utility functions
 public/
-├── og.png            # Open Graph / Twitter banner (1200×630)
-├── cv_en.pdf         # Résumé — English
-├── cv_es.pdf         # Résumé — Spanish
+├── og.png            # Social preview image (1200×630)
+├── cv_en.pdf         # Résumé (English)
+├── cv_es.pdf         # Résumé (Spanish)
 └── favicon.svg
 ```
 
 ---
 
-## Getting Started
-
-```bash
-# Install dependencies
-npm install
-
-# Start dev server
-npm run dev
-
-# Type-check + production build
-npm run build
-
-# Preview production build locally
-npm run preview
-```
-
----
-
-## Deployment
-
-The site is deployed to **Cloudflare Workers** as a static SPA with custom domain routing configured in `wrangler.toml`.
-
-```bash
-# Build and deploy in one step
-npm run deploy
-```
-
-Requires Wrangler to be authenticated (`wrangler login`). Deploys to `crescente.dev` and `www.crescente.dev`.
-
----
-
 ## Internationalization
 
-The UI supports English and Spanish via `react-i18next`. Translation files live in `src/i18n/`. The CV download automatically serves the language-matched PDF (`cv_en.pdf` or `cv_es.pdf`) based on the active locale.
+The site ships with full EN/ES support via `react-i18next`. Users toggle the language from the navbar. To **add a new language**:
+
+1. Create `src/i18n/xx.json` (copy `en.json` and translate values)
+2. Register it in `src/i18n/index.ts`
+3. Add the toggle logic in `src/components/layout/Navbar.tsx`
+
+To **remove Spanish** and go single-language, delete `es.json`, remove the language toggle button from the Navbar, and set `lng: 'en'` as the only option in `src/i18n/index.ts`.
 
 ---
 
 ## Contact
+
+Built by Oscar Crescente.
 
 - Email: [hola@crescente.dev](mailto:hola@crescente.dev)
 - LinkedIn: [oscarcrescente](https://linkedin.com/in/oscarcrescente)
