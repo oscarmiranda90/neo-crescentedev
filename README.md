@@ -350,12 +350,21 @@ Schedule: daily at 06:00
 
 Task:
 1. Pick a topic related to [your niche, e.g. mobile dev, Flutter, AI, product engineering]
-2. Write a ~600 word article in English
+2. Write a ~600 word article — English first, then Spanish
 3. Generate a URL-safe kebab-case slug
 4. Create the file src/posts/YYYY-MM-DD-{slug}.md in the repo
-   with correct frontmatter (see frontmatter reference above)
+   with the structure below
 5. Commit it to main via the GitHub API tool
    Commit message: "content: new post - {title}"
+
+Required frontmatter keys (use EXACTLY these names):
+  slug, title (English), title_es (Spanish), date, readTime,
+  excerpt (English one-liner), excerpt_es (Spanish one-liner), lang
+
+Content format — English first, then the ES marker, then Spanish:
+  [English article content]
+  <!-- lang:es -->
+  [Spanish article content]
 ```
 
 #### How deployment works (no action needed on your end)

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { Card, CardHeader, CardTitle, CardDescription, CardFooter } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
-import { allPosts } from '@/lib/posts'
+import { allPosts, localizedTitle, localizedExcerpt } from '@/lib/posts'
 
 export default function Blog() {
     const { t, i18n } = useTranslation()
@@ -27,8 +27,8 @@ export default function Blog() {
                                     <Badge variant="neutral">{post.lang.toUpperCase()}</Badge>
                                     <span className="text-xs font-mono">{post.date} · {post.readTime} {t('blog.min_read')}</span>
                                 </div>
-                                <CardTitle>{lang === 'es' && post.title_es ? post.title_es : post.title}</CardTitle>
-                                <CardDescription>{lang === 'es' && post.excerpt_es ? post.excerpt_es : post.excerpt}</CardDescription>
+                                <CardTitle>{localizedTitle(post, lang)}</CardTitle>
+                                <CardDescription>{localizedExcerpt(post, lang)}</CardDescription>
                             </CardHeader>
                             <CardFooter>
                                 <Button size="sm" asChild>

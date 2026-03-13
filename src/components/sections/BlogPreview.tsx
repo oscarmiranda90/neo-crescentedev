@@ -5,7 +5,7 @@ import { Badge } from '@/components/ui/badge'
 import { Link } from 'react-router-dom'
 import Star36 from '@/components/stars/s36'
 import { useInView } from '@/hooks/useInView'
-import { allPosts } from '@/lib/posts'
+import { allPosts, localizedTitle, localizedExcerpt } from '@/lib/posts'
 
 const PREVIEW_POSTS = allPosts.slice(0, 2)
 
@@ -52,8 +52,8 @@ export default function BlogPreview() {
                                             {post.readTime} {t('blog.min_read')}
                                         </span>
                                     </div>
-                                    <CardTitle>{lang === 'es' && post.title_es ? post.title_es : post.title}</CardTitle>
-                                    <CardDescription>{lang === 'es' && post.excerpt_es ? post.excerpt_es : post.excerpt}</CardDescription>
+                                    <CardTitle>{localizedTitle(post, lang)}</CardTitle>
+                                    <CardDescription>{localizedExcerpt(post, lang)}</CardDescription>
                                 </CardHeader>
                                 <CardFooter>
                                     <Button size="sm" variant="outline" asChild>

@@ -1,12 +1,13 @@
-import { useParams, Link } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { marked } from 'marked'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
-import { getPost } from '@/lib/posts'
+import { getPost, localizedTitle, contentForLang } from '@/lib/posts'
 
 export default function BlogPost() {
     const { slug } = useParams<{ slug: string }>()
+    const navigate = useNavigate()
     const { i18n } = useTranslation()
     const lang = i18n.language as 'en' | 'es'
 
@@ -15,8 +16,8 @@ export default function BlogPost() {
     if (!post) {
         return (
             <main className="max-w-3xl mx-auto px-4 py-20">
-                <Button variant="outline" size="sm" asChild className="mb-8">
-                    <Link to="/blog">← Back to Blog</Link>
+                <Button variant="outline" size="sm" className="mb-8" onClick={() => navigate(-1)}>
+                    ← Back
                 </Button>
                 <h1 className="text-4xl font-bold mb-4">Post not found</h1>
                 <p className="text-lg text-foreground/70">
@@ -26,15 +27,11 @@ export default function BlogPost() {
         )
     }
 
-    const title = lang === 'es' && post.title_es ? post.title_es : post.title
-    const html = String(marked.parse(post.content))
+    const title = localizedTitle(post, lang)
+    const html = String(marked.parse(contentForLang(post.content, lang)))
 
     return (
         <main className="max-w-3xl mx-auto px-4 py-20">
-            <Button variant="outline" size="sm" asChild className="mb-8">
-                <Link to="/blog">← Back to Blog</Link>
-            </Button>
-
             <article>
                 <div className="flex items-center gap-3 mb-4">
                     <Badge variant="neutral">{post.lang.toUpperCase()}</Badge>
@@ -42,6 +39,9 @@ export default function BlogPost() {
                         {post.date} · {post.readTime} min read
                     </span>
                 </div>
+                <Button variant="outline" size="sm" className="mb-8" onClick={() => navigate(-1)}>
+                    ← Back
+                </Button>
 
                 <h1 className="text-4xl sm:text-5xl font-bold leading-tight mb-10 border-b-2 border-border pb-6">
                     {title}
