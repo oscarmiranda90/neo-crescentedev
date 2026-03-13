@@ -5,18 +5,9 @@ import { Badge } from '@/components/ui/badge'
 import { Link } from 'react-router-dom'
 import Star36 from '@/components/stars/s36'
 import { useInView } from '@/hooks/useInView'
+import { allPosts } from '@/lib/posts'
 
-// Placeholder posts - replace with real markdown parsing
-const PLACEHOLDER_POSTS = [
-    {
-        slug: 'why-neobrutalism',
-        title: { en: 'Why I Chose Neobrutalism for My Portfolio', es: 'Por qué elegí Neobrutalism para mi portafolio' },
-        excerpt: { en: 'Bold borders, thick shadows, and strong colors - the story behind this design choice.', es: 'Bordes gruesos, sombras fuertes y colores vivos - la historia detrás de esta decisión de diseño.' },
-        date: '2026-02-25',
-        readTime: 4,
-        lang: 'en',
-    },
-]
+const PREVIEW_POSTS = allPosts.slice(0, 2)
 
 export default function BlogPreview() {
     const { t, i18n } = useTranslation()
@@ -47,7 +38,7 @@ export default function BlogPreview() {
                 </div>
 
                 <div className="grid sm:grid-cols-2 gap-6">
-                    {PLACEHOLDER_POSTS.map((post, i) => (
+                    {PREVIEW_POSTS.map((post, i) => (
                         <div
                             key={post.slug}
                             className="reveal reveal-fade-up"
@@ -61,8 +52,8 @@ export default function BlogPreview() {
                                             {post.readTime} {t('blog.min_read')}
                                         </span>
                                     </div>
-                                    <CardTitle>{post.title[lang]}</CardTitle>
-                                    <CardDescription>{post.excerpt[lang]}</CardDescription>
+                                    <CardTitle>{lang === 'es' && post.title_es ? post.title_es : post.title}</CardTitle>
+                                    <CardDescription>{lang === 'es' && post.excerpt_es ? post.excerpt_es : post.excerpt}</CardDescription>
                                 </CardHeader>
                                 <CardFooter>
                                     <Button size="sm" variant="outline" asChild>

@@ -33,7 +33,8 @@
         "heading": "Últimas Entradas",
         "read_more": "Leer más",
         "view_all": "Ver todos los posts",
-        "min_read": "min de lectura"
+        "min_read": "min de lectura",
+        "no_posts": "Aún no hay artículos. Vuelve pronto."
     },
     "contact": {
         "heading": "Trabajemos juntos.",

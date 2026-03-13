@@ -16,6 +16,7 @@ Live example → [crescente.dev](https://crescente.dev)
 | Components | Radix UI primitives |
 | Routing | React Router v6 |
 | i18n | i18next (EN / ES) |
+| Blog | Markdown files + gray-matter + marked |
 | Deployment | Cloudflare Workers (via Wrangler) |
 
 ---
@@ -224,13 +225,88 @@ src/
 ├── i18n/
 │   ├── en.json       # ← English copy
 │   └── es.json       # ← Spanish copy
+├── lib/
+│   ├── posts.ts      # Blog post loader (reads src/posts/*.md at build time)
+│   └── utils.ts      # Utility functions
 ├── pages/            # Route-level pages
-└── lib/              # Utility functions
+└── posts/            # ← drop .md files here to publish a blog post
 public/
 ├── og.png            # Social preview image (1200×630)
 ├── cv_en.pdf         # Résumé (English)
 ├── cv_es.pdf         # Résumé (Spanish)
 └── favicon.svg
+```
+
+---
+
+## Blog — Writing & Publishing
+
+Posts are plain Markdown files in `src/posts/`. Vite reads them all at build time via `import.meta.glob` — no CMS, no database, no API.
+
+### Adding a post
+
+Create a file in `src/posts/` with the format `YYYY-MM-DD-your-slug.md`:
+
+```md
+---
+slug: my-first-post
+title: "My Post Title"
+title_es: "Título en español"
+date: "2026-03-13"
+readTime: 5
+excerpt: "One sentence shown on the blog listing page."
+excerpt_es: "Una línea que aparece en la lista del blog."
+lang: en
+---
+
+Your article content here in Markdown.
+
+## Section heading
+
+Paragraphs, **bold**, *italic*, [links](https://example.com), `inline code`.
+
+## Another section
+
+> Blockquotes work too.
+
+- Bullet lists
+- Are supported
+
+1. Ordered lists
+2. Also work
+```
+
+The post is live after the next deploy. The blog listing and home preview update automatically — newest posts appear first.
+
+### Frontmatter reference
+
+| Field | Required | Description |
+|---|---|---|
+| `slug` | ✓ | URL path — `/blog/{slug}` |
+| `title` | ✓ | Title shown in English |
+| `title_es` | | Spanish title (falls back to `title`) |
+| `date` | ✓ | ISO date `YYYY-MM-DD`, used for sorting |
+| `readTime` | ✓ | Estimated minutes to read |
+| `excerpt` | ✓ | Short description for cards/SEO |
+| `excerpt_es` | | Spanish excerpt (falls back to `excerpt`) |
+| `lang` | ✓ | Primary language badge shown on cards |
+
+### Automating posts with an AI agent (e.g. OpenClaw)
+
+The file-based blog is designed to work with a daily AI agent. The agent only needs the GitHub MCP tool to commit a new `.md` file to `main`. The GitHub Actions workflow in `.github/workflows/deploy.yml` triggers automatically and deploys to Cloudflare Workers.
+
+**Suggested agent prompt:**
+
+```
+Schedule: daily at 06:00
+
+Task:
+1. Pick a topic related to mobile development, Flutter, React, AI, or product engineering
+2. Write a ~600 word English article with a bilingual title and excerpt
+3. Generate a URL-safe kebab-case slug
+4. Create src/posts/YYYY-MM-DD-{slug}.md with correct frontmatter
+5. Commit to main of oscarmiranda90/neo-crescentedev
+   Commit message: "content: new post - {title}"
 ```
 
 ---
