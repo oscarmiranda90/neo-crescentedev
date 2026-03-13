@@ -293,21 +293,89 @@ The post is live after the next deploy. The blog listing and home preview update
 
 ### Automating posts with an AI agent (e.g. OpenClaw)
 
-The file-based blog is designed to work with a daily AI agent. The agent only needs the GitHub MCP tool to commit a new `.md` file to `main`. The GitHub Actions workflow in `.github/workflows/deploy.yml` triggers automatically and deploys to Cloudflare Workers.
+The file-based blog is designed to work with a daily AI agent. The full pipeline looks like this:
 
-**Suggested agent prompt:**
+```
+OpenClaw (scheduled at 06:00)
+  → writes article as .md
+  → commits to main via GitHub API (no git CLI needed)
+  → GitHub Actions triggers automatically
+  → npm run build (Vite bundles the new post)
+  → wrangler deploy (using stored Cloudflare secrets)
+  → live on your domain in ~60s
+```
+
+#### Step 1 — Create a GitHub Fine-Grained Token
+
+Go to: **github.com → (your avatar) → Settings → Developer settings → Personal access tokens → Fine-grained tokens → Generate new token**
+
+Settings:
+- **Resource owner:** your GitHub username
+- **Repository access:** Only select your portfolio repo
+- **Permissions — repository:**
+  - `Contents` → **Read and Write**
+  - `Metadata` → Read-only (auto-selected)
+  - Everything else → No access
+
+Copy the generated token (`github_pat_...`). Store it only in OpenClaw's credentials vault — never in the codebase.
+
+#### Step 2 — Add Cloudflare secrets to GitHub Actions
+
+Go to: **github.com → your-repo → Settings → Secrets and variables → Actions → New repository secret**
+
+Add these two secrets:
+
+| Secret name | Where to find the value |
+|---|---|
+| `CLOUDFLARE_API_TOKEN` | [dash.cloudflare.com](https://dash.cloudflare.com) → My Profile → API Tokens → Create Token → use the "Edit Cloudflare Workers" template |
+| `CLOUDFLARE_ACCOUNT_ID` | dash.cloudflare.com → Workers & Pages overview → right sidebar, labeled "Account ID" |
+
+Once set, GitHub Actions can deploy to Cloudflare automatically on every push — without any manual `npm run deploy`.
+
+#### Step 3 — Configure OpenClaw
+
+In OpenClaw's agent settings:
+
+1. Add the **GitHub MCP tool** — paste your fine-grained PAT as the credential
+2. Set the tool to use the **GitHub API** (`create_or_update_file`) rather than git CLI — this avoids all credential helper issues
+3. Schedule the agent daily at your preferred time
+
+> **Why GitHub API instead of `git push`?**  
+> OpenClaw runs in an ephemeral environment. The git credential helper (`~/.git-credentials`) can strip tokens from URLs, causing 403 errors. The GitHub MCP tool calls the REST API directly with the PAT — no git, no credential helpers, no caching issues.
+
+#### Step 4 — Set the agent prompt
 
 ```
 Schedule: daily at 06:00
 
 Task:
-1. Pick a topic related to mobile development, Flutter, React, AI, or product engineering
-2. Write a ~600 word English article with a bilingual title and excerpt
+1. Pick a topic related to [your niche, e.g. mobile dev, Flutter, AI, product engineering]
+2. Write a ~600 word article in English
 3. Generate a URL-safe kebab-case slug
-4. Create src/posts/YYYY-MM-DD-{slug}.md with correct frontmatter
-5. Commit to main of oscarmiranda90/neo-crescentedev
+4. Create the file src/posts/YYYY-MM-DD-{slug}.md in the repo
+   with correct frontmatter (see frontmatter reference above)
+5. Commit it to main via the GitHub API tool
    Commit message: "content: new post - {title}"
 ```
+
+#### How deployment works (no action needed on your end)
+
+The `.github/workflows/deploy.yml` file already handles everything:
+
+```yaml
+on:
+  push:
+    branches:
+      - main   # triggers on every commit OpenClaw makes
+```
+
+Every time OpenClaw commits a new `.md` file, GitHub Actions runs `npm run build` (which picks up the new post via `import.meta.glob`) and deploys to Cloudflare Workers. You never need to run `npm run deploy` manually for new articles.
+
+#### Security notes
+
+- The PAT only has `Contents: Read/Write` on one repo — even if leaked, it can't touch anything else in your GitHub account
+- The Cloudflare API token is stored only in GitHub Secrets — never in the codebase
+- Revoke and regenerate either token instantly from their respective dashboards if compromised
 
 ---
 
