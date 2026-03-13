@@ -5,17 +5,56 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Oscar Crescente — Mobile Developer & Product Engineer" />
-    <title>crescente.dev</title>
-    <!-- Space Grotesk font -->
+    <meta name="description" content="Oscar Crescente — Mobile Developer & Product Engineer specializing in Flutter, React, and AI-powered apps." />
+    <title>Oscar Crescente | Mobile Developer &amp; Product Engineer</title>
+
+    <!-- Open Graph / social preview -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://crescente.dev" />
+    <meta property="og:title" content="Oscar Crescente | Mobile Developer &amp; Product Engineer" />
+    <meta property="og:description" content="Oscar Crescente — Mobile Developer &amp; Product Engineer specializing in Flutter, React, and AI-powered apps." />
+    <meta property="og:image" content="https://crescente.dev/og.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    <!-- Twitter / X card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://crescente.dev" />
+    <meta name="twitter:title" content="Oscar Crescente | Mobile Developer &amp; Product Engineer" />
+    <meta name="twitter:description" content="Oscar Crescente — Mobile Developer &amp; Product Engineer specializing in Flutter, React, and AI-powered apps." />
+    <meta name="twitter:image" content="https://crescente.dev/og.png" />
+
+    <!-- Preconnect to Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Space Grotesk & Space Mono fonts -->
     <link
         href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap"
         rel="stylesheet" />
+
+    <!-- Structured data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Oscar Crescente",
+      "url": "https://crescente.dev",
+      "jobTitle": "Mobile Developer & Product Engineer",
+      "sameAs": [
+        "https://github.com/oscarmiranda90",
+        "https://linkedin.com/in/oscarcrescente",
+        "https://x.com/Saturamas"
+      ],
+      "knowsAbout": ["Flutter", "Dart", "React", "Next.js", "Firebase", "Supabase", "Python", "AI"]
+    }
+    </script>
 </head>
 
 <body>
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:bg-background focus:border-2 focus:border-border focus:font-bold focus:rounded-base">
+        Skip to content
+    </a>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
 </body>

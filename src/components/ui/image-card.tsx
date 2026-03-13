@@ -22,6 +22,9 @@ const CardInner = ({ title, description, image }: Pick<ImageCardProps, 'title' |
             <img
                 src={image}
                 alt={title}
+                loading="lazy"
+                width={600}
+                height={400}
                 className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                 onError={(e) => {
                     const el = e.currentTarget

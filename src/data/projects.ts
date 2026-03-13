@@ -11,8 +11,8 @@ export const projects: Project[] = [
         id: 1,
         title: 'RepSet.fit',
         description: {
-            en: 'Fitness tracking app for strength training — log workouts, track PRs, and crush your goals.',
-            es: 'App de fitness para entrenamiento de fuerza — registra rutinas, sigue tus marcas y alcanza tus metas.',
+            en: 'Fitness tracking app for strength training - log workouts, track PRs, and crush your goals.',
+            es: 'App de fitness para entrenamiento de fuerza - registra rutinas, sigue tus marcas y alcanza tus metas.',
         },
         image: 'https://placehold.co/600x400/FDE047/000000?text=RepSet.fit',
         liveUrl: 'https://repset.fit',
@@ -31,8 +31,8 @@ export const projects: Project[] = [
         id: 3,
         title: 'Ribeye: Carnivore Diet Tracker',
         description: {
-            en: 'Nutrition tracker built for the carnivore diet — log meals, macros and stay on track.',
-            es: 'Rastreador de nutrición para la dieta carnívora — registra comidas, macros y mantente en curso.',
+            en: 'Nutrition tracker built for the carnivore diet - log meals, macros and stay on track.',
+            es: 'Rastreador de nutrición para la dieta carnívora - registra comidas, macros y mantente en curso.',
         },
         image: 'https://placehold.co/600x400/FDE047/000000?text=Ribeye',
         liveUrl: '/ribeye',
@@ -41,8 +41,8 @@ export const projects: Project[] = [
         id: 4,
         title: 'Bolsito.app',
         description: {
-            en: 'Collective savings and credit platform — manage group finances with transparency.',
-            es: 'Plataforma de crédito y ahorro colectivo — administra las finanzas grupales con transparencia.',
+            en: 'Collective savings and credit platform - manage group finances with transparency.',
+            es: 'Plataforma de crédito y ahorro colectivo - administra las finanzas grupales con transparencia.',
         },
         image: 'https://placehold.co/600x400/000000/FDE047?text=Bolsito',
         liveUrl: 'https://bolsito.app',
@@ -66,5 +66,25 @@ export const projects: Project[] = [
         },
         image: 'https://placehold.co/600x400/000000/FDE047?text=Venequian',
         liveUrl: 'https://venequian.com/',
+    },
+    {
+        id: 7,
+        title: 'LEF Studio',
+        description: {
+            en: 'Creative production studio with a fully equipped multi-use space - portrait & commercial photography, video production, and podcast recording.',
+            es: 'Estudio de producción creativa con un espacio multiuso completamente equipado - fotografía de retratos y comercial, producción de video y grabación de podcast.',
+        },
+        image: 'https://placehold.co/600x400/111111/FFFFFF?text=LEF+Studio',
+        liveUrl: 'https://www.lefstudio.com/',
+    },
+    {
+        id: 8,
+        title: 'Hierro Negro',
+        description: {
+            en: 'E-commerce platform and admin panel for a construction materials retailer - hardware, steel, and building supplies sold wholesale and retail.',
+            es: 'Plataforma de e-commerce y panel de administración para ferretería y materiales de construcción - hierro, herramientas e insumos al detal y al mayor.',
+        },
+        image: 'https://placehold.co/600x400/1a1a1a/FDE047?text=Hierro+Negro',
+        liveUrl: 'https://hierronegro-react-13w.pages.dev/',
     },
 ]

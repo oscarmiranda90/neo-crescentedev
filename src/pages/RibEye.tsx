@@ -11,8 +11,8 @@ import {
   ArrowLeft
 } from "lucide-react";
 import { Link } from "react-router-dom";
-import ribeyeIcon from "@/assets/ribeye-icon.png";
-import ribeyeScreenshot from "@/assets/ribeye-screenshot.png";
+import ribeyeIcon from "@/assets/ribeye-icon.webp";
+import ribeyeScreenshot from "@/assets/ribeye-screenshot.webp";
 import {
   Accordion,
   AccordionContent,
@@ -34,7 +34,7 @@ const RibEye = () => {
               </Button>
             </Link>
             <div className="flex items-center gap-2 ml-4">
-              <img src={ribeyeIcon} alt="RibEye Icon" className="w-8 h-8 rounded-lg" />
+              <img src={ribeyeIcon} alt="RibEye Icon" width={32} height={32} className="w-8 h-8 rounded-lg" />
               <span className="text-xl font-bold">RibEye</span>
             </div>
           </div>
@@ -68,7 +68,7 @@ const RibEye = () => {
                 Track your carnivore journey with a T-Rex by your side.
               </h1>
               <p className="text-xl text-white/70">
-                RibEye turns your carnivore diet into a game of streaks, mood tracking, and progress — without the hassle of calorie counting.
+                RibEye turns your carnivore diet into a game of streaks, mood tracking, and progress - without the hassle of calorie counting.
               </p>
               <ul className="space-y-3">
                 <li className="flex items-start gap-3">
@@ -102,6 +102,9 @@ const RibEye = () => {
               <img 
                 src={ribeyeScreenshot} 
                 alt="RibEye App Screenshot" 
+                loading="lazy"
+                width={885}
+                height={1920}
                 className="max-w-sm mx-auto rounded-3xl border border-white/20 shadow-2xl"
               />
             </div>
@@ -546,7 +549,7 @@ const RibEye = () => {
         <div className="container mx-auto px-6">
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             <div className="flex items-center gap-2">
-              <img src={ribeyeIcon} alt="RibEye Icon" className="w-8 h-8 rounded-lg" />
+              <img src={ribeyeIcon} alt="RibEye Icon" width={32} height={32} className="w-8 h-8 rounded-lg" />
               <span className="text-xl font-bold">RibEye</span>
             </div>
             <div className="flex gap-6 text-sm text-white/60">

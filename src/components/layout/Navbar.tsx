@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Button } from '@/components/ui/button'
+import Star38 from '@/components/stars/s38'
 
 export default function Navbar() {
     const { t, i18n } = useTranslation()
@@ -25,12 +26,14 @@ export default function Navbar() {
 
     return (
         <header className="sticky top-0 z-50 bg-background border-b-2 border-border">
-            <nav className="max-w-5xl mx-auto px-4 h-16 flex items-center justify-between">
+            <nav aria-label="Main navigation" className="max-w-5xl mx-auto px-4 h-16 flex items-center justify-between">
                 {/* Logo */}
                 <button
                     onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-                    className="font-mono font-bold text-lg hover:text-main transition-colors"
+                    aria-label="Go to top of page"
+                    className="font-mono font-bold text-lg hover:text-main transition-colors flex items-center gap-2"
                 >
+                    <Star38 size={20} color="currentColor" spinDuration={0} />
                     crescente.dev
                 </button>
 
@@ -49,6 +52,7 @@ export default function Navbar() {
                     {/* Lang toggle */}
                     <button
                         onClick={toggleLang}
+                        aria-label={i18n.language === 'en' ? 'Switch to Spanish' : 'Switch to English'}
                         className="font-mono text-sm border-2 border-border px-2 py-0.5 rounded-base shadow-shadow hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all"
                     >
                         {i18n.language === 'en' ? 'ES' : 'EN'}

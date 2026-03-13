@@ -4,12 +4,12 @@ import { Card, CardHeader, CardTitle, CardDescription, CardFooter } from '@/comp
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 
-// Placeholder — replace with real markdown posts
+// Placeholder - replace with real markdown posts
 const ALL_POSTS = [
     {
         slug: 'why-neobrutalism',
         title: { en: 'Why I Chose Neobrutalism for My Portfolio', es: 'Por qué elegí Neobrutalism para mi portafolio' },
-        excerpt: { en: 'Bold borders, thick shadows, and strong colors — the story behind this design choice.', es: 'Bordes gruesos, sombras fuertes y colores vivos — la historia detrás de esta decisión de diseño.' },
+        excerpt: { en: 'Bold borders, thick shadows, and strong colors - the story behind this design choice.', es: 'Bordes gruesos, sombras fuertes y colores vivos - la historia detrás de esta decisión de diseño.' },
         date: '2026-02-25',
         readTime: 4,
         lang: 'en',

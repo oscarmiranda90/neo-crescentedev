@@ -2,6 +2,7 @@ import { useTranslation } from 'react-i18next'
 import { Button } from '@/components/ui/button'
 import Star36 from '@/components/stars/s36'
 import Star38 from '@/components/stars/s38'
+import { useInView } from '@/hooks/useInView'
 
 const SOCIALS = [
     { label: 'GitHub', url: 'https://github.com/oscarmiranda90' },
@@ -11,21 +12,48 @@ const SOCIALS = [
 
 export default function Contact() {
     const { t } = useTranslation()
+    const sectionRef = useInView<HTMLElement>(0.1)
 
     return (
-        <section id="contact" className="relative bg-main border-b-2 border-black py-24 overflow-hidden">
-            {/* Stars on yellow — use black at low opacity */}
-            <Star38 size={220} className="absolute -top-12 -right-12 text-black opacity-[0.06] pointer-events-none" />
-            <Star36 size={48} className="absolute bottom-8 right-48 text-black opacity-10 pointer-events-none" />
+        <section
+            id="contact"
+            ref={sectionRef}
+            className="relative bg-main border-b-2 border-black py-24 overflow-hidden"
+        >
+            {/* Stars on yellow */}
+            <Star38
+                spinDuration={24}
+                size={260}
+                className="absolute -top-16 -right-16 text-black opacity-[0.06] pointer-events-none"
+            />
+            <Star36
+                spinDuration={16}
+                spinReverse
+                size={56}
+                className="absolute bottom-8 right-48 text-black opacity-10 pointer-events-none"
+            />
+
             <div className="max-w-5xl mx-auto px-4">
-                <h2 className="text-4xl sm:text-6xl font-bold mb-6 leading-tight">
+                <h2
+                    className="reveal reveal-scale text-4xl sm:text-6xl font-bold mb-6 leading-tight"
+                    data-delay="0ms"
+                >
                     {t('contact.heading')}
                 </h2>
-                <p className="text-lg max-w-xl mb-10">{t('contact.subtext')}</p>
 
-                <div className="flex flex-wrap gap-4 mb-12">
+                <p
+                    className="reveal reveal-fade-up text-lg max-w-xl mb-10"
+                    data-delay="120ms"
+                >
+                    {t('contact.subtext')}
+                </p>
+
+                <div
+                    className="reveal reveal-fade-up flex flex-wrap gap-4 mb-12"
+                    data-delay="220ms"
+                >
                     <Button variant="neutral" size="lg" asChild>
-                        <a href="mailto:contact@crescente.dev">
+                        <a href="mailto:hola@crescente.dev">
                             {t('contact.email_cta')} ✉
                         </a>
                     </Button>
@@ -36,7 +64,10 @@ export default function Contact() {
                     </Button>
                 </div>
 
-                <div className="flex flex-wrap gap-3">
+                <div
+                    className="reveal reveal-fade-up flex flex-wrap gap-3"
+                    data-delay="340ms"
+                >
                     {SOCIALS.map((s) => (
                         <a
                             key={s.label}

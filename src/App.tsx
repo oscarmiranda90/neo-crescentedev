@@ -13,7 +13,7 @@ export default function App() {
         <BrowserRouter>
             <div className="min-h-screen flex flex-col">
                 <Navbar />
-                <div className="flex-1">
+                <main id="main-content" className="flex-1">
                     <Routes>
                         <Route path="/" element={<Home />} />
                         <Route path="/blog" element={<Blog />} />
@@ -24,7 +24,7 @@ export default function App() {
                         <Route
                             path="*"
                             element={
-                                <main className="flex items-center justify-center min-h-[60vh]">
+                                <div className="flex items-center justify-center min-h-[60vh]">
                                     <div className="text-center">
                                         <h1 className="text-8xl font-bold text-main">404</h1>
                                         <p className="text-2xl font-bold mt-4">Page not found.</p>
@@ -32,11 +32,11 @@ export default function App() {
                                             Go home →
                                         </a>
                                     </div>
-                                </main>
+                                </div>
                             }
                         />
                     </Routes>
-                </div>
+                </main>
                 <Footer />
             </div>
         </BrowserRouter>
