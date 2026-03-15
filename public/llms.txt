@@ -1,0 +1,44 @@
+# Oscar Crescente
+
+> Mobile Developer & Product Engineer delivering end-to-end digital products — from UX/UI and backend architecture to App Store publishing. Specializing in Flutter, React, and AI-powered apps.
+
+Website: https://crescente.dev
+
+## About
+
+Oscar Crescente is a bilingual (English & Spanish) mobile and product engineer with expertise in productivity, entertainment, fitness, finance, and health applications. He covers the complete development process: authentication systems, database design, API logic, UX/UI design, smooth animations, and App Store deployment. Highly qualified in AI-powered tools and no-code accelerators.
+
+### Skills & Tools
+
+**Mobile & Web:** Flutter, Dart, React, Next.js, Vite, Tailwind CSS
+
+**Backend & Data:** Supabase, Firebase, Python, MySQL, REST APIs
+
+**AI & Automation:** Claude, OpenAI, Google AI, AI Prompting, No-Code / Low-Code
+
+**Design & Motion:** Figma, UX/UI Design, Rive, Lottie, Canva, Affinity Designer, Photoshop
+
+**Workflow:** Claude Code, GitHub Copilot, Git, App Store Connect, Agile / Scrum
+
+## Projects
+
+- [RepSet.fit](https://repset.fit): Fitness tracking app for strength training — log workouts, track PRs, and crush your goals.
+- [Moira: Manifestation Coach](https://trymoira.app/): AI-powered manifestation and mindset coaching app to help users achieve their goals.
+- [Ribeye: Carnivore Diet Tracker](https://crescente.dev/ribeye): Nutrition tracker built for the carnivore diet — log meals, macros and stay on track.
+- [Bolsito.app](https://bolsito.app): Collective savings and credit platform — manage group finances with transparency.
+- [Dougsoluciones.com](https://www.dougsoluciones.com): E-commerce and catalog platform for a clinical laboratory supply company. Sells reagents, consumables, and diagnostic equipment to labs across Venezuela.
+- [Venequian](https://venequian.com/): Icon library with Venezuelan cultural inspiration — a growing set of illustrated icons rooted in the colors, symbols, and spirit of Venezuela.
+- [LEF Studio](https://www.lefstudio.com/): Creative production studio with a fully equipped multi-use space — portrait & commercial photography, video production, and podcast recording.
+- [Hierro Negro](https://hierronegro-react-13w.pages.dev/): E-commerce platform and admin panel for a construction materials retailer — hardware, steel, and building supplies sold wholesale and retail.
+
+## Blog
+
+- [Why I Chose Neobrutalism for My Portfolio](https://crescente.dev/blog/why-neobrutalism): Bold borders, thick shadows, and strong colors — the story behind the design choice for this portfolio. Built with React + Vite + TypeScript and Tailwind CSS v4.
+- [DroidRun: The AI-Powered Mobile Automation Revolution](https://crescente.dev/blog/droidrun-ai-mobile-automation-revolution): DroidRun enables mobile device automation through natural language commands, marking a new milestone in the convergence of AI and mobile development.
+- [RunanywhereAI: The Toolkit to Run AI Locally](https://crescente.dev/blog/runanywhere-ai-local-toolkit): RunanywhereAI SDKs provides a production-ready toolkit to run AI models locally, without depending on external APIs.
+
+## Contact
+
+- Email: available via https://crescente.dev/#contact
+- WhatsApp: available via https://crescente.dev/#contact
+- LinkedIn: https://crescente.dev/#contact

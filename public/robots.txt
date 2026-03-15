@@ -2,3 +2,4 @@ User-agent: *
 Allow: /
 
 Sitemap: https://crescente.dev/sitemap.xml
+LLMs: https://crescente.dev/llms.txt
