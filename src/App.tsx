@@ -1,5 +1,6 @@
 import { Component, type ReactNode } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { SectionErrorBoundary } from '@/components/ui/section-error-boundary'
 import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
 import Home from '@/pages/Home'
@@ -38,8 +39,8 @@ export default function App() {
                     <ErrorBoundary>
                     <Routes>
                         <Route path="/" element={<Home />} />
-                        <Route path="/blog" element={<Blog />} />
-                        <Route path="/blog/:slug" element={<BlogPost />} />
+                        <Route path="/blog" element={<SectionErrorBoundary label="Blog"><Blog /></SectionErrorBoundary>} />
+                        <Route path="/blog/:slug" element={<SectionErrorBoundary label="Blog post"><BlogPost /></SectionErrorBoundary>} />
                         <Route path="/ribeye" element={<RibEye />} />
                         <Route path="/ribeye/privacy" element={<RibEyePrivacy />} />
                         <Route path="/ribeye/terms" element={<RibEyeTerms />} />
