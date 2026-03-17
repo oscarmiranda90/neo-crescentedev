@@ -6,5 +6,8 @@
   "tailwindCSS.experimental.classRegex": [],
   "files.associations": {
     "*.css": "css"
-  }
+  },
+  "git.autofetch": true,
+  "git.autofetchPeriod": 30,
+  "git.rebaseWhenSync": true
 }
