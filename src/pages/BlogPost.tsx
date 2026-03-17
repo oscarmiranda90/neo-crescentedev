@@ -34,7 +34,7 @@ export default function BlogPost() {
         <main className="max-w-3xl mx-auto px-4 py-20">
             <article>
                 <div className="flex items-center gap-3 mb-4">
-                    <Badge variant="neutral">{post.lang.toUpperCase()}</Badge>
+                    <Badge variant="neutral">{post.lang?.toUpperCase()}</Badge>
                     <span className="text-xs font-mono text-foreground/60">
                         {post.date} · {post.readTime} min read
                     </span>

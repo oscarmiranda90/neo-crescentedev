@@ -47,7 +47,7 @@ export default function BlogPreview() {
                             <Card>
                                 <CardHeader>
                                     <div className="flex items-center gap-2 mb-2">
-                                        <Badge variant="neutral">{post.lang.toUpperCase()}</Badge>
+                                        <Badge variant="neutral">{post.lang?.toUpperCase()}</Badge>
                                         <span className="text-xs font-mono text-foreground/70">
                                             {post.readTime} {t('blog.min_read')}
                                         </span>

@@ -24,7 +24,7 @@ export default function Blog() {
                         <Card key={post.slug}>
                             <CardHeader>
                                 <div className="flex items-center gap-2 mb-2">
-                                    <Badge variant="neutral">{post.lang.toUpperCase()}</Badge>
+                                    <Badge variant="neutral">{post.lang?.toUpperCase()}</Badge>
                                     <span className="text-xs font-mono">{post.date} · {post.readTime} {t('blog.min_read')}</span>
                                 </div>
                                 <CardTitle>{localizedTitle(post, lang)}</CardTitle>
