@@ -74,14 +74,25 @@ const rawFiles = import.meta.glob<string>('/src/posts/*.md', {
 })
 
 export const allPosts: PostMeta[] = Object.values(rawFiles)
-    .map((raw) => parseFrontmatter(raw).data as unknown as PostMeta)
+    .map((raw) => {
+        const { data } = parseFrontmatter(raw)
+        const post = data as unknown as PostMeta
+        // Skip malformed posts (failed frontmatter parse or missing required fields)
+        if (!post.slug || !post.title) return null
+        // Fallback for missing lang (agent-generated posts may omit it)
+        if (!post.lang) post.lang = 'en'
+        return post
+    })
+    .filter((p): p is PostMeta => p !== null)
     .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
 
 export function getPost(slug: string): Post | null {
     for (const raw of Object.values(rawFiles)) {
         const { data, content } = parseFrontmatter(raw)
         if (data.slug === slug) {
-            return { ...(data as unknown as PostMeta), content }
+            const post = { ...(data as unknown as PostMeta), content }
+            if (!post.lang) post.lang = 'en'
+            return post
         }
     }
     return null
