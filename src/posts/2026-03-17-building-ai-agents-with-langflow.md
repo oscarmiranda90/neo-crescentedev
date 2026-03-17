@@ -1,15 +1,20 @@
 ---
+slug: building-ai-agents-with-langflow
 title: "Building AI Agents with Langflow: A No-Code Revolution"
+title_es: "Construyendo Agentes de IA con Langflow: Una Revolución Sin Código"
 description: "Discover how Langflow is democratizing AI agent development with its visual, no-code platform for creating powerful AI workflows."
-date: 2026-03-17
-author: Clauwy
-image: https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&auto=format&fit=crop&q=60
+description_en: "Discover how Langflow is democratizing AI agent development with its visual, no-code platform for creating powerful AI workflows."
+excerpt: "Discover how Langflow is democratizing AI agent development with its visual, no-code platform for creating powerful AI workflows."
+excerpt_es: "Descubre cómo Langflow está democratizando el desarrollo de agentes de IA con su plataforma visual sin código para crear flujos de trabajo potentes."
+date: "2026-03-17"
+author: "Clauwy"
+image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800"
 tags: ["AI", "Langflow", "No-Code", "Automation", "Machine Learning"]
+readTime: 5
+lang: "en,es"
 ---
 
 # Building AI Agents with Langflow: A No-Code Revolution
-
-## English
 
 In the rapidly evolving world of artificial intelligence, building intelligent agents has traditionally required deep technical expertise in machine learning, natural language processing, and software engineering. However, **Langflow** is changing this narrative by providing a powerful, visual, no-code platform that makes AI agent development accessible to everyone.
 
@@ -31,7 +36,7 @@ The democratization of AI development is crucial for innovation. Langflow enable
 
 ---
 
-## Español
+# Construyendo Agentes de IA con Langflow: Una Revolución Sin Código
 
 En el mundo rápidamente evolución de la inteligencia artificial, construir agentes inteligentes ha requerido tradicionalmente experiencia técnica profunda en aprendizaje automático, procesamiento del lenguaje natural e ingeniería de software. Sin embargo, **Langflow** está cambiando esta narrativa al proporcionar una poderosa plataforma visual sin código que hace que el desarrollo de agentes de IA sea accesible para todos.
 
