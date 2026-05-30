@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react'
 
-export function useInView<T extends HTMLElement>(threshold = 0.15) {
+export function useInView<T extends HTMLElement>(threshold = 0.05) {
     const ref = useRef<T>(null)
 
     useEffect(() => {
@@ -9,22 +9,34 @@ export function useInView<T extends HTMLElement>(threshold = 0.15) {
 
         const targets = container.querySelectorAll<HTMLElement>('.reveal')
 
+        // Immediately reveal anything already in viewport on mount
+        const revealEl = (el: HTMLElement) => {
+            const delay = el.dataset.delay ?? '0'
+            el.style.animationDelay = delay
+            el.classList.add('in-view')
+        }
+
         const observer = new IntersectionObserver(
             (entries) => {
                 entries.forEach((entry) => {
                     if (entry.isIntersecting) {
-                        const el = entry.target as HTMLElement
-                        const delay = el.dataset.delay ?? '0'
-                        el.style.animationDelay = delay
-                        el.classList.add('in-view')
-                        observer.unobserve(el)
+                        revealEl(entry.target as HTMLElement)
+                        observer.unobserve(entry.target)
                     }
                 })
             },
-            { threshold }
+            { threshold, rootMargin: '0px 0px -40px 0px' }
         )
 
-        targets.forEach((el) => observer.observe(el))
+        targets.forEach((el) => {
+            const rect = el.getBoundingClientRect()
+            if (rect.top < window.innerHeight) {
+                revealEl(el)
+            } else {
+                observer.observe(el)
+            }
+        })
+
         return () => observer.disconnect()
     }, [threshold])
 

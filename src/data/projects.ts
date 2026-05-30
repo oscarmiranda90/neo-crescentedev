@@ -4,18 +4,22 @@ export interface Project {
     description: { en: string; es: string }
     image: string
     liveUrl: string
+    featured?: boolean
+    tags?: string[]
 }
 
 export const projects: Project[] = [
     {
         id: 1,
-        title: 'RepSet.fit',
+        title: 'Invitta',
         description: {
-            en: 'Fitness tracking app for strength training - log workouts, track PRs, and crush your goals.',
-            es: 'App de fitness para entrenamiento de fuerza - registra rutinas, sigue tus marcas y alcanza tus metas.',
+            en: 'Web platform for creating digital invitations with RSVP management, seating charts, and event coordination tools.',
+            es: 'Plataforma web para crear invitaciones digitales con gestión de confirmaciones, asignación de asientos y herramientas de coordinación de eventos.',
         },
-        image: 'https://placehold.co/600x400/FDE047/000000?text=RepSet.fit',
-        liveUrl: 'https://repset.fit',
+        image: 'https://placehold.co/600x400/FDE047/000000?text=Invitta',
+        liveUrl: 'https://invitta.app',
+        featured: true,
+        tags: ['Next.js', 'Supabase', 'Web'],
     },
     {
         id: 2,
@@ -25,7 +29,9 @@ export const projects: Project[] = [
             es: 'App de coaching de manifestación y mentalidad con IA para ayudar a los usuarios a alcanzar sus metas.',
         },
         image: 'https://placehold.co/600x400/000000/FDE047?text=Moira',
-        liveUrl: 'https://trymoira.app/',
+        liveUrl: 'https://apps.apple.com/us/app/moira-manifestation-journal/id6751951846',
+        featured: true,
+        tags: ['Flutter', 'Firebase', 'AI Companion'],
     },
     {
         id: 3,
@@ -35,17 +41,9 @@ export const projects: Project[] = [
             es: 'Rastreador de nutrición para la dieta carnívora - registra comidas, macros y mantente en curso.',
         },
         image: 'https://placehold.co/600x400/FDE047/000000?text=Ribeye',
-        liveUrl: '/ribeye',
-    },
-    {
-        id: 4,
-        title: 'Bolsito.app',
-        description: {
-            en: 'Collective savings and credit platform - manage group finances with transparency.',
-            es: 'Plataforma de crédito y ahorro colectivo - administra las finanzas grupales con transparencia.',
-        },
-        image: 'https://placehold.co/600x400/000000/FDE047?text=Bolsito',
-        liveUrl: 'https://bolsito.app',
+        liveUrl: 'https://apps.apple.com/us/app/ribeye-carnivore-diet/id6754494858',
+        featured: true,
+        tags: ['Flutter', 'Supabase', 'Mobile'],
     },
     {
         id: 5,
@@ -56,16 +54,7 @@ export const projects: Project[] = [
         },
         image: 'https://placehold.co/600x400/FDE047/000000?text=DougSoluciones',
         liveUrl: 'https://www.dougsoluciones.com',
-    },
-    {
-        id: 6,
-        title: 'Venequian',
-        description: {
-            en: 'Icon library with Venezuelan cultural inspiration. A growing set of illustrated icons rooted in the colors, symbols, and spirit of Venezuela.',
-            es: 'Librería de iconos con inspiración venezolana. Un conjunto creciente de iconos ilustrados basados en los colores, símbolos y espíritu de Venezuela.',
-        },
-        image: 'https://placehold.co/600x400/000000/FDE047?text=Venequian',
-        liveUrl: 'https://venequian.com/',
+        tags: ['React', 'E-commerce', 'Web'],
     },
     {
         id: 7,
@@ -76,6 +65,7 @@ export const projects: Project[] = [
         },
         image: 'https://placehold.co/600x400/111111/FFFFFF?text=LEF+Studio',
         liveUrl: 'https://www.lefstudio.com/',
+        tags: ['Next.js', 'Web'],
     },
     {
         id: 8,
@@ -86,5 +76,6 @@ export const projects: Project[] = [
         },
         image: 'https://placehold.co/600x400/1a1a1a/FDE047?text=Hierro+Negro',
         liveUrl: 'https://hierronegro-react-13w.pages.dev/',
+        tags: ['React', 'E-commerce', 'Web'],
     },
 ]

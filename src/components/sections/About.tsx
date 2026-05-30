@@ -1,7 +1,6 @@
 import { useTranslation } from 'react-i18next'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
-import { Link } from 'react-router-dom'
 import oscarPortrait from '@/assets/oscar-portrait.webp'
 import Star38 from '@/components/stars/s38'
 import Star36 from '@/components/stars/s36'
@@ -75,9 +74,6 @@ export default function About() {
                                 />
                             </div>
                         </div>
-                        <Button variant="outline" size="sm" className="w-fit" asChild>
-                            <Link to="/blog">{t('blog.view_all')} →</Link>
-                        </Button>
                     </div>
 
                     {/* Bio - slides in from right */}

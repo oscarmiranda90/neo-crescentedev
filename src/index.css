@@ -123,6 +123,15 @@
   will-change: opacity, transform;
 }
 
+/* Ensure content is always visible for crawlers, prefers-reduced-motion, and fast scrollers */
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1 !important;
+    animation: none !important;
+    transform: none !important;
+  }
+}
+
 .reveal-fade-up.in-view     { animation: fade-up 0.65s cubic-bezier(0.22, 1, 0.36, 1) both; }
 .reveal-slide-left.in-view  { animation: slide-left 0.65s cubic-bezier(0.22, 1, 0.36, 1) both; }
 .reveal-slide-right.in-view { animation: slide-right 0.65s cubic-bezier(0.22, 1, 0.36, 1) both; }

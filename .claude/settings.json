@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(lsof -nP -iTCP -sTCP:LISTEN)",
+      "Bash(npx playwright *)",
+      "Bash(npx --prefix /Volumes/CORSAIR/crescenteDEV/neo-crescentedev playwright --version)",
+      "Bash(ls /usr/local/lib/node_modules/ | grep play)",
+      "Read(//usr/local/lib/node_modules/**)",
+      "Read(//Users/oscarcrescendo/.claude/skills/critique/reference/**)"
+    ]
+  }
+}

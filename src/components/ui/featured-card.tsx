@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import { cn } from '@/lib/utils'
 
-interface ImageCardProps {
+interface FeaturedCardProps {
     title: string
     description: string
     image: string
@@ -17,9 +17,9 @@ const cardClass = (className?: string) =>
         className,
     )
 
-const CardInner = ({ title, description, image, tags }: Pick<ImageCardProps, 'title' | 'description' | 'image' | 'tags'>) => (
+const CardInner = ({ title, description, image, tags }: Pick<FeaturedCardProps, 'title' | 'description' | 'image' | 'tags'>) => (
     <>
-        <div className="w-full h-40 overflow-hidden border-b-2 border-border bg-secondary-background">
+        <div className="w-full h-56 overflow-hidden border-b-2 border-border bg-secondary-background relative">
             <img
                 src={image}
                 alt={title}
@@ -32,23 +32,26 @@ const CardInner = ({ title, description, image, tags }: Pick<ImageCardProps, 'ti
                     el.style.display = 'none'
                     el.parentElement!.classList.add('flex', 'items-center', 'justify-center')
                     const fallback = document.createElement('span')
-                    fallback.className = 'text-4xl font-bold text-border/20 select-none'
+                    fallback.className = 'text-5xl font-bold text-border/20 select-none'
                     fallback.textContent = title.charAt(0).toUpperCase()
                     el.parentElement!.appendChild(fallback)
                 }}
             />
+            <span className="absolute top-3 left-3 bg-main border-2 border-border px-2 py-0.5 font-mono text-xs font-bold shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] rounded-base">
+                Featured
+            </span>
         </div>
-        <div className="p-4 flex flex-col gap-2">
-            <h3 className="text-base font-heading leading-tight group-hover:text-main transition-colors">
+        <div className="p-5 flex flex-col gap-3">
+            <h3 className="text-xl font-heading font-bold leading-tight group-hover:text-main transition-colors">
                 {title}
             </h3>
-            <p className="text-sm text-foreground/70 leading-relaxed line-clamp-2">{description}</p>
+            <p className="text-sm text-foreground/70 leading-relaxed">{description}</p>
             {tags && tags.length > 0 && (
                 <div className="flex flex-wrap gap-1.5 pt-1">
                     {tags.map((tag) => (
                         <span
                             key={tag}
-                            className="font-mono text-xs border border-border px-2 py-0.5 rounded-base text-foreground/50"
+                            className="font-mono text-xs border border-border px-2 py-0.5 rounded-base text-foreground/60"
                         >
                             {tag}
                         </span>
@@ -59,20 +62,20 @@ const CardInner = ({ title, description, image, tags }: Pick<ImageCardProps, 'ti
     </>
 )
 
-export default function ImageCard({ title, description, image, href, className }: ImageCardProps) {
+export default function FeaturedCard({ title, description, image, href, tags, className }: FeaturedCardProps) {
     const isInternal = href.startsWith('/')
 
     if (isInternal) {
         return (
             <Link to={href} className={cardClass(className)}>
-                <CardInner title={title} description={description} image={image} />
+                <CardInner title={title} description={description} image={image} tags={tags} />
             </Link>
         )
     }
 
     return (
         <a href={href} target="_blank" rel="noopener noreferrer" className={cardClass(className)}>
-            <CardInner title={title} description={description} image={image} />
+            <CardInner title={title} description={description} image={image} tags={tags} />
         </a>
     )
 }

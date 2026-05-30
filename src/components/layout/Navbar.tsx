@@ -1,11 +1,40 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Button } from '@/components/ui/button'
 import Star38 from '@/components/stars/s38'
 
+const SECTION_IDS = ['about', 'projects', 'blog', 'contact']
+
+function useActiveSection() {
+    const [active, setActive] = useState<string>('')
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        setActive(entry.target.id)
+                    }
+                })
+            },
+            { rootMargin: '-20% 0px -70% 0px', threshold: 0 }
+        )
+
+        SECTION_IDS.forEach((id) => {
+            const el = document.getElementById(id)
+            if (el) observer.observe(el)
+        })
+
+        return () => observer.disconnect()
+    }, [])
+
+    return active
+}
+
 export default function Navbar() {
     const { t, i18n } = useTranslation()
     const [menuOpen, setMenuOpen] = useState(false)
+    const activeSection = useActiveSection()
 
     const scrollTo = (id: string) => {
         document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
@@ -23,6 +52,8 @@ export default function Navbar() {
         { label: t('nav.blog'), id: 'blog' },
         { label: t('nav.contact'), id: 'contact' },
     ]
+
+    const nextLang = i18n.language === 'en' ? 'ES' : 'EN'
 
     return (
         <header className="sticky top-0 z-50 bg-background border-b-2 border-border">
@@ -43,19 +74,26 @@ export default function Navbar() {
                         <button
                             key={l.id}
                             onClick={() => scrollTo(l.id)}
-                            className="text-sm font-bold hover:underline underline-offset-4"
+                            className={[
+                                'text-sm font-bold transition-colors underline-offset-4',
+                                activeSection === l.id
+                                    ? 'text-main underline'
+                                    : 'hover:underline',
+                            ].join(' ')}
+                            aria-current={activeSection === l.id ? 'location' : undefined}
                         >
                             {l.label}
                         </button>
                     ))}
 
-                    {/* Lang toggle */}
+                    {/* Lang toggle — shows current lang with globe icon */}
                     <button
                         onClick={toggleLang}
                         aria-label={i18n.language === 'en' ? 'Switch to Spanish' : 'Switch to English'}
-                        className="font-mono text-sm border-2 border-border px-2 py-0.5 rounded-base shadow-shadow hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all"
+                        className="font-mono text-sm border-2 border-border px-2 py-0.5 rounded-base shadow-shadow hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all flex items-center gap-1"
                     >
-                        {i18n.language === 'en' ? 'ES' : 'EN'}
+                        <span aria-hidden="true">🌐</span>
+                        {nextLang}
                     </button>
                 </div>
 
@@ -77,13 +115,16 @@ export default function Navbar() {
                             <button
                                 key={l.id}
                                 onClick={() => scrollTo(l.id)}
-                                className="text-left font-bold text-lg"
+                                className={[
+                                    'text-left font-bold text-lg',
+                                    activeSection === l.id ? 'text-foreground underline underline-offset-4' : '',
+                                ].join(' ')}
                             >
                                 {l.label}
                             </button>
                         ))}
                         <Button variant="outline" size="sm" className="w-fit" onClick={toggleLang}>
-                            {i18n.language === 'en' ? 'Switch to ES' : 'Switch to EN'}
+                            🌐 {i18n.language === 'en' ? 'Switch to ES' : 'Switch to EN'}
                         </Button>
                     </div>
                 </div>
