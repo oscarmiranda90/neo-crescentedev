@@ -606,19 +606,19 @@ const RepSet = () => {
                   RepSet
                 </span>
               </div>
-              <div className="flex gap-6 text-sm" style={{ color: "#6e7666" }}>
+              <div className="flex flex-wrap justify-center gap-6 text-sm" style={{ color: "#6e7666" }}>
                 <a href="#features" className="transition-colors hover:text-white">
                   Features
-                </a>
-                <a href="#assistant" className="transition-colors hover:text-white">
-                  AI assistant
                 </a>
                 <a href="#open-source" className="transition-colors hover:text-white">
                   Open source
                 </a>
-                <a href="#faq" className="transition-colors hover:text-white">
-                  FAQ
-                </a>
+                <Link to="/repset/privacy" className="transition-colors hover:text-white">
+                  Privacy
+                </Link>
+                <Link to="/repset/terms" className="transition-colors hover:text-white">
+                  Terms
+                </Link>
               </div>
               <Link
                 to="/#projects"

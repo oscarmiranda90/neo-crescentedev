@@ -14,6 +14,8 @@ import MythikaPrivacy from '@/pages/MythikaPrivacy'
 import MythikaTerms from '@/pages/MythikaTerms'
 import MythikaDeleteAccount from '@/pages/MythikaDeleteAccount'
 import RepSet from '@/pages/RepSet'
+import RepSetPrivacy from '@/pages/RepSetPrivacy'
+import RepSetTerms from '@/pages/RepSetTerms'
 
 class ErrorBoundary extends Component<{ children: ReactNode }, { error: Error | null }> {
     state = { error: null }
@@ -54,6 +56,8 @@ export default function App() {
                         <Route path="/mythika/terms" element={<MythikaTerms />} />
                         <Route path="/mythika/delete-account" element={<MythikaDeleteAccount />} />
                         <Route path="/repset" element={<RepSet />} />
+                        <Route path="/repset/privacy" element={<RepSetPrivacy />} />
+                        <Route path="/repset/terms" element={<RepSetTerms />} />
                         <Route
                             path="*"
                             element={
