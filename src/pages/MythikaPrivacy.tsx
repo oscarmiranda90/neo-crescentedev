@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
-import mythikaIcon from "@/assets/mythika-icon.png";
+import mythikaIcon from "@/assets/mythika-icon.webp";
 
 const MythikaPrivacy = () => {
   return (

@@ -2,12 +2,12 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { ArrowLeft, Star, Swords, Trophy, Users } from "lucide-react";
 import { Link } from "react-router-dom";
-import mythikaIcon from "@/assets/mythika-icon.png";
-import mythikaScr1 from "@/assets/mythika-scr1.png";
-import mythikaScr3 from "@/assets/mythika-scr3.png";
-import mythikaScr4 from "@/assets/mythika-scr4.png";
-import mythikaSlice2 from "@/assets/mythika-slice2.png";
-import mythikaSlice5 from "@/assets/mythika-slice5.png";
+import mythikaIcon from "@/assets/mythika-icon.webp";
+import mythikaScr1 from "@/assets/mythika-scr1.webp";
+import mythikaScr3 from "@/assets/mythika-scr3.webp";
+import mythikaScr4 from "@/assets/mythika-scr4.webp";
+import mythikaSlice2 from "@/assets/mythika-slice2.webp";
+import mythikaSlice5 from "@/assets/mythika-slice5.webp";
 
 const screenshots = [mythikaScr1, mythikaScr3, mythikaScr4, mythikaSlice2, mythikaSlice5];
 
