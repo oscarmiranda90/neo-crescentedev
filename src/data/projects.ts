@@ -4,11 +4,36 @@ export interface Project {
     description: { en: string; es: string }
     image: string
     liveUrl: string
+    repoUrl?: string
     featured?: boolean
     tags?: string[]
 }
 
 export const projects: Project[] = [
+    {
+        id: 10,
+        title: 'RepSet: Open Training Platform',
+        description: {
+            en: 'A free, open-source training app with a 500+ exercise library, templates, live session tracking and progress history, plus an AI assistant that builds routines.',
+            es: 'Una app de entrenamiento gratuita y open source con una biblioteca de más de 500 ejercicios, plantillas, seguimiento de sesión en vivo e historial de progreso, más un asistente de IA que arma rutinas.',
+        },
+        image: 'https://placehold.co/600x400/D7FF4F/151714?text=RepSet',
+        liveUrl: '/repset',
+        featured: true,
+        tags: ['Flutter', 'Dart', 'Open Source'],
+    },
+    {
+        id: 9,
+        title: 'Mythika: Puzzle Tournament',
+        description: {
+            en: 'A puzzle game where strategy meets mythology. Compete in tournaments, unlock heroes, and rise through the ranks.',
+            es: 'Un juego de rompecabezas donde la estrategia se encuentra con la mitología. Compite en torneos, desbloquea héroes y asciende en las clasificaciones.',
+        },
+        image: 'https://placehold.co/600x400/FFFFFF/000000?text=Mythika',
+        liveUrl: 'https://apps.apple.com/us/app/mythika-puzzle-tournament/id6517363482',
+        featured: true,
+        tags: ['Flutter', 'iOS', 'Mobile Game'],
+    },
     {
         id: 1,
         title: 'Invitta',
@@ -23,6 +48,19 @@ export const projects: Project[] = [
     },
     {
         id: 2,
+        title: 'TGC Maker',
+        description: {
+            en: 'Tool for creating beautiful trading game cards using shaders and layered composition, built for easy integration into Flutter apps or any production pipeline.',
+            es: 'Herramienta para crear hermosas trading game cards usando shaders y composicion por capas, pensada para integrarse facilmente en apps Flutter o cualquier pipeline de produccion.',
+        },
+        image: 'https://placehold.co/600x400/0A0A0A/FDE047?text=TGC+Maker',
+        liveUrl: 'https://tgc-maker-web.pages.dev',
+        repoUrl: 'https://github.com/oscarmiranda90/tgc-maker',
+        featured: true,
+        tags: ['Flutter', 'Dart', 'Tooling'],
+    },
+    {
+        id: 3,
         title: 'Moira: Manifestation Coach',
         description: {
             en: 'AI-powered manifestation and mindset coaching app to help users achieve their goals.',
@@ -34,7 +72,7 @@ export const projects: Project[] = [
         tags: ['Flutter', 'Firebase', 'AI Companion'],
     },
     {
-        id: 3,
+        id: 4,
         title: 'Ribeye: Carnivore Diet Tracker',
         description: {
             en: 'Nutrition tracker built for the carnivore diet - log meals, macros and stay on track.',

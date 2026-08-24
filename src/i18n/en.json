@@ -27,7 +27,8 @@
         "heading": "Projects",
         "live": "Live",
         "code": "Code",
-        "no_projects": "Coming soon…"
+        "no_projects": "Coming soon…",
+        "more_work": "More Work"
     },
     "blog": {
         "heading": "Latest Posts",

@@ -149,3 +149,9 @@
 .delay-600 { animation-delay: 600ms !important; }
 .delay-700 { animation-delay: 700ms !important; }
 .delay-800 { animation-delay: 800ms !important; }
+
+/* ── RepSet: RepSetDirectionalReveal, ported from the app's motion system ── */
+@keyframes repset-sweep {
+  0%   { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}

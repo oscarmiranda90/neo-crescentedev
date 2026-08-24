@@ -9,6 +9,11 @@ import BlogPost from '@/pages/BlogPost'
 import RibEye from '@/pages/RibEye'
 import RibEyePrivacy from '@/pages/RibEyePrivacy'
 import RibEyeTerms from '@/pages/RibEyeTerms'
+import Mythika from '@/pages/Mythika'
+import MythikaPrivacy from '@/pages/MythikaPrivacy'
+import MythikaTerms from '@/pages/MythikaTerms'
+import MythikaDeleteAccount from '@/pages/MythikaDeleteAccount'
+import RepSet from '@/pages/RepSet'
 
 class ErrorBoundary extends Component<{ children: ReactNode }, { error: Error | null }> {
     state = { error: null }
@@ -44,6 +49,11 @@ export default function App() {
                         <Route path="/ribeye" element={<RibEye />} />
                         <Route path="/ribeye/privacy" element={<RibEyePrivacy />} />
                         <Route path="/ribeye/terms" element={<RibEyeTerms />} />
+                        <Route path="/mythika" element={<Mythika />} />
+                        <Route path="/mythika/privacy" element={<MythikaPrivacy />} />
+                        <Route path="/mythika/terms" element={<MythikaTerms />} />
+                        <Route path="/mythika/delete-account" element={<MythikaDeleteAccount />} />
+                        <Route path="/repset" element={<RepSet />} />
                         <Route
                             path="*"
                             element={

@@ -49,6 +49,9 @@ export default function Projects() {
                                         description={project.description[lang]}
                                         image={project.image}
                                         href={project.liveUrl}
+                                        repoUrl={project.repoUrl}
+                                        liveLabel={t('projects.live')}
+                                        codeLabel={t('projects.code')}
                                         tags={project.tags}
                                     />
                                 </div>
@@ -75,6 +78,9 @@ export default function Projects() {
                                                 description={project.description[lang]}
                                                 image={project.image}
                                                 href={project.liveUrl}
+                                                repoUrl={project.repoUrl}
+                                                liveLabel={t('projects.live')}
+                                                codeLabel={t('projects.code')}
                                                 tags={project.tags}
                                             />
                                         </div>

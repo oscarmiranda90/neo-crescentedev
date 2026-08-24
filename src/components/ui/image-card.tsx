@@ -6,6 +6,9 @@ interface ImageCardProps {
     description: string
     image: string
     href: string
+    repoUrl?: string
+    liveLabel?: string
+    codeLabel?: string
     tags?: string[]
     className?: string
 }
@@ -17,7 +20,38 @@ const cardClass = (className?: string) =>
         className,
     )
 
-const CardInner = ({ title, description, image, tags }: Pick<ImageCardProps, 'title' | 'description' | 'image' | 'tags'>) => (
+const actionClass =
+    'inline-flex items-center justify-center rounded-base border-2 border-border px-2.5 py-1.5 font-mono text-[11px] font-bold shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-transform hover:-translate-x-[1px] hover:-translate-y-[1px] hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]'
+
+function ActionLink({ href, label, secondary = false }: { href: string; label: string; secondary?: boolean }) {
+    const isInternal = href.startsWith('/')
+    const classes = cn(actionClass, secondary ? 'bg-background text-foreground' : 'bg-main text-main-foreground')
+
+    if (isInternal) {
+        return (
+            <Link to={href} className={classes}>
+                {label}
+            </Link>
+        )
+    }
+
+    return (
+        <a href={href} target="_blank" rel="noopener noreferrer" className={classes}>
+            {label}
+        </a>
+    )
+}
+
+const CardInner = ({
+    title,
+    description,
+    image,
+    tags,
+    href,
+    repoUrl,
+    liveLabel = 'Live',
+    codeLabel = 'Code',
+}: Pick<ImageCardProps, 'title' | 'description' | 'image' | 'tags' | 'href' | 'repoUrl' | 'liveLabel' | 'codeLabel'>) => (
     <>
         <div className="w-full h-40 overflow-hidden border-b-2 border-border bg-secondary-background">
             <img
@@ -43,6 +77,10 @@ const CardInner = ({ title, description, image, tags }: Pick<ImageCardProps, 'ti
                 {title}
             </h3>
             <p className="text-sm text-foreground/70 leading-relaxed line-clamp-2">{description}</p>
+            <div className="flex flex-wrap gap-2 pt-1">
+                <ActionLink href={href} label={liveLabel} />
+                {repoUrl && <ActionLink href={repoUrl} label={codeLabel} secondary />}
+            </div>
             {tags && tags.length > 0 && (
                 <div className="flex flex-wrap gap-1.5 pt-1">
                     {tags.map((tag) => (
@@ -59,20 +97,19 @@ const CardInner = ({ title, description, image, tags }: Pick<ImageCardProps, 'ti
     </>
 )
 
-export default function ImageCard({ title, description, image, href, className }: ImageCardProps) {
-    const isInternal = href.startsWith('/')
-
-    if (isInternal) {
-        return (
-            <Link to={href} className={cardClass(className)}>
-                <CardInner title={title} description={description} image={image} />
-            </Link>
-        )
-    }
-
+export default function ImageCard({ title, description, image, href, repoUrl, liveLabel, codeLabel, tags, className }: ImageCardProps) {
     return (
-        <a href={href} target="_blank" rel="noopener noreferrer" className={cardClass(className)}>
-            <CardInner title={title} description={description} image={image} />
-        </a>
+        <article className={cardClass(className)}>
+            <CardInner
+                title={title}
+                description={description}
+                image={image}
+                href={href}
+                repoUrl={repoUrl}
+                liveLabel={liveLabel}
+                codeLabel={codeLabel}
+                tags={tags}
+            />
+        </article>
     )
 }
