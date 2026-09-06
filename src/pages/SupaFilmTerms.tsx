@@ -249,11 +249,11 @@ const SupaFilmTerms = () => {
           <p>
             Questions about these terms? Write to{" "}
             <a
-              href="mailto:oscar.dreamtheater@gmail.com"
+              href="mailto:hola@ultramare.dev"
               className="font-semibold underline decoration-1 underline-offset-4 transition-opacity hover:opacity-70"
               style={{ color: RUST }}
             >
-              oscar.dreamtheater@gmail.com
+              hola@ultramare.dev
             </a>
             .
           </p>
