@@ -42,8 +42,8 @@ const features = [
     body: "Volume, sessions and personal records over time, computed from your real history and never from invented numbers.",
   },
   {
-    title: "No account, no ads",
-    body: "Nothing to sign up for and nothing to dismiss. Install it and start the first session.",
+    title: "Optional account, local workouts",
+    body: "Start logging without signing in. An optional account carries RepSet Max between devices, never your workout history.",
   },
 ];
 
@@ -54,7 +54,19 @@ const openSource = [
   },
   {
     title: "Use the library on its own",
-    body: "The exercise dataset and the domain layer are separable from the UI, so you can build a different interface on top.",
+    body: (
+      <>
+        Build your own interface on top of the workout domain layer, or start
+        with the open-source <a
+          href="https://github.com/bryllim/workout-guide"
+          target="_blank"
+          rel="noreferrer"
+          className="font-semibold underline decoration-1 underline-offset-4 transition-opacity hover:opacity-75"
+          style={{ color: LIME }}
+        >Workout Guide</a> exercise illustration library. Review its license
+        and attribution requirements before shipping.
+      </>
+    ),
   },
   {
     title: "Built to be read",
@@ -65,19 +77,19 @@ const openSource = [
 const faqs = [
   {
     q: "Is RepSet really free?",
-    a: "Yes. The app, the 500+ exercise library, templates, tracking and progress history are free, with no account and no ads. The only thing that ever costs money is hosted AI generation, and even that is optional because you can use your own OpenRouter key instead.",
+    a: "Yes. The exercise library, templates, workout tracking and progress history are free. The free official app includes ads outside active workouts. RepSet Max is optional and removes ads while adding an allowance for AI-assisted session planning.",
   },
   {
     q: "What does open source mean here in practice?",
     a: "The full source is public. You can read it, fork it, change it, and ship your own training app built on the same foundation, including the exercise library, the workout engine and the data layer.",
   },
   {
-    q: "Do I need an OpenRouter key to use the app?",
-    a: "No. The key only matters for the AI assistant. The library, templates, tracking and history all work without any key at all.",
+    q: "Do I need an account to use the app?",
+    a: "No. The library, templates, workout tracking and history work without an account. Sign-in is only needed when you want RepSet Max to follow you across devices.",
   },
   {
     q: "Where is my training data stored?",
-    a: "On your device, in a local database. RepSet works fully offline and there is no account to create, so your history is not sitting on someone else's server.",
+    a: "On your device, in a local database. RepSet's core logger works offline, and even an optional account never uploads or synchronizes your workout history.",
   },
   {
     q: "Can I contribute exercises or code?",
@@ -342,8 +354,8 @@ const RepSet = () => {
                 </h3>
                 <p className="mt-2.5 text-[15.5px]" style={{ color: MUTED, maxWidth: "58ch" }}>
                   Your workouts live in a local database, so a dead signal in the
-                  basement gym changes nothing. There is no account to create and
-                  no training history sold to anyone.
+                  basement gym changes nothing. An account is optional, and your
+                  training history is never uploaded or sold.
                 </p>
               </article>
             </Reveal>
@@ -375,15 +387,15 @@ const RepSet = () => {
                 className="text-[11px] font-extrabold uppercase tracking-[.13em]"
                 style={{ color: LIME }}
               >
-                AI assistant
+                RepSet Max
               </p>
               <h2 className="text-balance text-3xl font-extrabold tracking-[-.035em] md:text-5xl">
                 Describe your goal. Get a routine.
               </h2>
               <p className="text-lg" style={{ color: MUTED }}>
-                Tell the assistant your training days, equipment and target, and
-                it builds a routine from the same 500+ exercise library the app
-                already uses.
+                Describe the session you want and RepSet builds a practical plan
+                from the same 500+ exercise library the app already uses. Review
+                and adjust it before you train.
               </p>
             </div>
           </Reveal>
@@ -398,12 +410,12 @@ const RepSet = () => {
                 style={{ background: LIME, color: "#16190f" }}
               >
                 <h2 className="text-3xl font-extrabold tracking-[-.035em] md:text-4xl">
-                  Two ways to run it.
+                  Planning without API-key setup.
                 </h2>
                 <p style={{ color: "rgba(22,25,15,.76)", maxWidth: "38ch" }}>
-                  Plug in your own OpenRouter key and pay the model provider
-                  directly at cost, or use ours and skip the setup. Same
-                  assistant either way.
+                  RepSet Max includes a hosted planning allowance. The provider
+                  key and cost controls stay on RepSet's server, never inside
+                  the app.
                 </p>
               </div>
               <div
@@ -412,14 +424,14 @@ const RepSet = () => {
               >
                 {[
                   [
-                    "YOUR KEY",
-                    "Bring your own OpenRouter key",
-                    "Paste your key into settings and pick any model OpenRouter offers. RepSet takes no cut, so you pay the provider directly.",
+                    "LOCAL FIRST",
+                    "Your workout history stays private",
+                    "Planning receives only what you type and a shortlist of exercise names — never your logged sets, body measurements or training history.",
                   ],
                   [
-                    "HOSTED",
-                    "Use ours instead",
-                    "No key to manage. Pay for hosted generations and the assistant works out of the box.",
+                    "MAX",
+                    "Included with RepSet Max",
+                    "No provider key to manage. Your subscription is verified by the server before a planning request is accepted.",
                   ],
                 ].map(([tag, title, body], i) => (
                   <div

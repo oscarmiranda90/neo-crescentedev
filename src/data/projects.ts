@@ -11,6 +11,18 @@ export interface Project {
 
 export const projects: Project[] = [
     {
+        id: 11,
+        title: 'SupaFilm: Script to Screen',
+        description: {
+            en: 'An iOS teleprompter that keeps your eyeline on the lens, with AI script writing and one-take edits that turn a recording into a post-ready vertical video.',
+            es: 'Un teleprompter para iOS que mantiene tu mirada en el lente, con escritura de guiones por IA y ediciones de una sola toma que convierten una grabación en un video vertical listo para publicar.',
+        },
+        image: 'https://placehold.co/600x400/FFFCF6/232528?text=SupaFilm',
+        liveUrl: '/supafilm',
+        featured: true,
+        tags: ['Flutter', 'iOS', 'AI'],
+    },
+    {
         id: 10,
         title: 'RepSet: Open Training Platform',
         description: {
@@ -19,6 +31,7 @@ export const projects: Project[] = [
         },
         image: 'https://placehold.co/600x400/D7FF4F/151714?text=RepSet',
         liveUrl: '/repset',
+        repoUrl: 'https://github.com/oscarmiranda90/open-repset',
         featured: true,
         tags: ['Flutter', 'Dart', 'Open Source'],
     },

@@ -12,7 +12,7 @@ const MUTED = "#969e8d";
 
 const PAGE_TITLE = "Privacy Policy | RepSet";
 const PAGE_DESCRIPTION =
-  "How RepSet handles your data: workouts stay on your device, there is no account, and no training history is collected or sold.";
+  "How RepSet handles your data: workouts stay on your device, accounts are optional, and training history is never collected or sold.";
 
 const Section = ({
   title,
@@ -87,7 +87,7 @@ const RepSetPrivacy = () => {
           Privacy Policy
         </h1>
         <p className="mb-4 text-sm" style={{ color: "#6e7666" }}>
-          Last updated: August 24, 2026
+          Last updated: August 25, 2026
         </p>
 
         <div
@@ -100,9 +100,11 @@ const RepSetPrivacy = () => {
             style={{ background: LIME }}
           />
           <p className="leading-relaxed" style={{ color: MUTED }}>
-            The short version: RepSet has no accounts and no servers holding
-            your training. Your workouts are stored in a database on your own
-            device. We do not collect, transmit, or sell your training history.
+            The short version: your workouts stay in a database on your own
+            device, and we never collect, transmit, or sell your training
+            history. An account is optional, and only exists to carry a
+            subscription between your devices. The free app shows ads, which
+            RepSet Max removes.
           </p>
         </div>
 
@@ -110,8 +112,9 @@ const RepSetPrivacy = () => {
           <Section title="1. Who this covers">
             <p>
               This policy covers the RepSet mobile application and this page on
-              crescente.dev. RepSet is free and open source, so you can verify
-              everything described here by reading the source.
+              crescente.dev. RepSet's core workout logger is free and its source
+              is public, so you can verify everything described here by reading
+              the source.
             </p>
           </Section>
 
@@ -127,45 +130,88 @@ const RepSetPrivacy = () => {
               <li>App settings and preferences</li>
             </ul>
             <p>
-              None of this is uploaded anywhere. There is no account to create,
-              no sign-in, and no cloud sync. If you uninstall the app, this data
-              is deleted with it.
+              None of this is uploaded anywhere. An optional account identifies
+              your subscription, but your workouts are never attached to it and
+              there is no workout cloud sync. If you uninstall the app, this
+              local data is deleted with it.
             </p>
           </Section>
 
           <Section title="3. What leaves your device">
             <p>
-              RepSet makes network requests in only two cases, and neither one
-              sends your training data:
+              Your training data is never uploaded. What follows is everything
+              that does leave the device, and when.
             </p>
-            <p style={{ color: INK }}>Exercise catalog and media</p>
+
+            <p style={{ color: INK }}>Exercise catalogue and media</p>
             <p>
               The app downloads exercise data and demonstration media from
-              media.crescente.dev. These are ordinary file requests for public
-              content. As with any web request, the server sees the standard
-              connection information a request carries, such as your IP address.
-              The request does not include anything about your workouts.
+              media.crescente.dev. These are ordinary requests for public files.
+              As with any web request, the server sees the standard connection
+              information a request carries, such as your IP address. Nothing
+              about your workouts is included.
             </p>
-            <p style={{ color: INK }}>AI assistant, only if you use it</p>
+
+            <p style={{ color: INK }}>Signing in, if you choose to</p>
             <p>
-              The AI assistant is optional and off until you use it. When you
-              ask it for a routine, the prompt you write and the parameters you
-              choose, such as training days and available equipment, are sent to
-              OpenRouter to generate a response. Your logged training history is
-              not sent unless you include it in what you write. If you use your
-              own OpenRouter key, the request goes from your device to
-              OpenRouter and we are not part of it. Requests are handled under
-              OpenRouter's own privacy policy.
+              Signing in is optional and the app works fully without it. It
+              exists so a RepSet Max subscription follows you to a new device.
+              Sign-in runs through Google or Apple, and Firebase Authentication
+              stores the resulting account: an account identifier, the email
+              address of the account you used, and the display name it provides.
+              With Apple you may choose to hide your email, and RepSet then
+              receives only Apple's relay address.
+            </p>
+            <p>
+              Your workouts are never attached to that account, and never
+              uploaded. The account identifies a subscriber, nothing else.
+            </p>
+
+            <p style={{ color: INK }}>Subscriptions</p>
+            <p>
+              RepSet Max is purchased through the App Store or Google Play, and
+              they process the payment — RepSet never sees your card or billing
+              details. Subscription status is managed by RevenueCat, which
+              receives your account identifier and the purchase record so the
+              app can tell whether Max is active.
+            </p>
+
+            <p style={{ color: INK }}>Advertising, in the free app</p>
+            <p>
+              The free version shows ads through Google AdMob, which may use a
+              device advertising identifier to select and measure them. Where
+              the law requires it, a consent form appears before any ad request
+              is made, and your choice is respected; you can change it later
+              from the app's privacy options. RepSet Max removes ads entirely.
+              Ad data is handled under Google's own privacy policy.
+            </p>
+
+            <p style={{ color: INK }}>AI session planning, only if you use it</p>
+            <p>
+              Planning is part of RepSet Max and does nothing until you write a
+              request. When you do, three things are sent to RepSet's planning
+              service: the sentence you wrote, a list of exercise names from the
+              catalogue for the model to choose from, and your account token so
+              the service can confirm your subscription. The service passes the
+              first two to OpenRouter, which generates the plan.
+            </p>
+            <p>
+              Your training history, your body measurements, and your logged
+              sets are never sent — the model only ever sees what you typed and
+              a list of exercise names. Requests are not stored to build a
+              profile of you. OpenRouter handles what it receives under its own
+              privacy policy.
             </p>
           </Section>
 
           <Section title="4. What we do not do">
             <ul className="ml-4 list-inside list-disc space-y-1.5">
-              <li>No analytics or usage tracking in the app</li>
+              <li>No uploading of your workouts, ever</li>
+              <li>No selling of your personal data</li>
+              <li>No analytics or usage tracking of your training</li>
               <li>No crash or telemetry reporting</li>
-              <li>No advertising and no ad identifiers</li>
-              <li>No selling or sharing of personal data</li>
-              <li>No account, so no email or name is collected</li>
+              <li>No ads during an active workout</li>
+              <li>No training history sent to any AI provider</li>
             </ul>
           </Section>
 
@@ -173,25 +219,43 @@ const RepSetPrivacy = () => {
             <p>
               RepSet requests notification permission so the rest timer can
               alert you when the app is in the background. You can decline it,
-              and the rest of the app works normally. No other permission is
-              requested.
+              and the rest of the app works normally.
+            </p>
+            <p>
+              On iOS, the free version also asks for permission to track before
+              showing personalised ads. Declining means you still see ads, just
+              less relevant ones, and nothing else about the app changes. Both
+              permissions can be changed at any time in your device settings.
             </p>
           </Section>
 
           <Section title="6. Children">
             <p>
               RepSet is not directed at children under 13 and does not knowingly
-              collect information from them. Since the app collects no personal
-              information at all, there is nothing for us to hold or delete.
+              collect information from them. If you believe a child has created
+              an account, email hola@crescente.dev and it will be deleted.
             </p>
           </Section>
 
           <Section title="7. Your control over your data">
             <p>
-              Because your data never leaves your device, you control it
-              directly. You can delete individual sessions and templates in the
-              app, or remove everything by uninstalling it. There is no request
-              to file with us, because there is nothing on our side to erase.
+              Your training data stays on your device, so you control it
+              directly: delete individual sessions and templates in the app, or
+              remove everything by uninstalling it.
+            </p>
+            <p>
+              If you created an account, you can have it and the data tied to it
+              erased. Email{" "}
+              <a
+                href="mailto:hola@crescente.dev?subject=RepSet%20account%20deletion"
+                className="underline underline-offset-4"
+                style={{ color: LIME }}
+              >
+                hola@crescente.dev
+              </a>{" "}
+              from the address you signed in with, and you may also ask what is
+              held about you or request a copy of it. Cancel a subscription in
+              your App Store or Google Play account.
             </p>
           </Section>
 
@@ -231,6 +295,12 @@ const RepSetPrivacy = () => {
             className="transition-colors hover:text-white"
           >
             Terms
+          </Link>
+          <Link
+            to="/repset/support"
+            className="transition-colors hover:text-white"
+          >
+            Support
           </Link>
           <Link to="/#projects" className="transition-colors hover:text-white">
             Back to portfolio

@@ -16,6 +16,10 @@ import MythikaDeleteAccount from '@/pages/MythikaDeleteAccount'
 import RepSet from '@/pages/RepSet'
 import RepSetPrivacy from '@/pages/RepSetPrivacy'
 import RepSetTerms from '@/pages/RepSetTerms'
+import RepSetSupport from '@/pages/RepSetSupport'
+import SupaFilm from '@/pages/SupaFilm'
+import SupaFilmPrivacy from '@/pages/SupaFilmPrivacy'
+import SupaFilmTerms from '@/pages/SupaFilmTerms'
 
 class ErrorBoundary extends Component<{ children: ReactNode }, { error: Error | null }> {
     state = { error: null }
@@ -58,6 +62,10 @@ export default function App() {
                         <Route path="/repset" element={<RepSet />} />
                         <Route path="/repset/privacy" element={<RepSetPrivacy />} />
                         <Route path="/repset/terms" element={<RepSetTerms />} />
+                        <Route path="/repset/support" element={<RepSetSupport />} />
+                        <Route path="/supafilm" element={<SupaFilm />} />
+                        <Route path="/supafilm/privacy" element={<SupaFilmPrivacy />} />
+                        <Route path="/supafilm/terms" element={<SupaFilmTerms />} />
                         <Route
                             path="*"
                             element={

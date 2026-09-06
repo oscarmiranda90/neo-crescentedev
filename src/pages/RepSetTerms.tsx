@@ -12,7 +12,7 @@ const MUTED = "#969e8d";
 
 const PAGE_TITLE = "Terms of Use | RepSet";
 const PAGE_DESCRIPTION =
-  "Terms of use for RepSet: how the free and open-source training app is licensed, what the AI assistant does, and the limits of training advice.";
+  "Terms for RepSet's free workout logger, optional Max subscription, AI session planning, advertising, and open-source code.";
 
 const Section = ({
   title,
@@ -87,7 +87,7 @@ const RepSetTerms = () => {
           Terms of Use
         </h1>
         <p className="mb-4 text-sm" style={{ color: "#6e7666" }}>
-          Last updated: August 24, 2026
+          Last updated: August 25, 2026
         </p>
 
         <div
@@ -100,9 +100,12 @@ const RepSetTerms = () => {
             style={{ background: LIME }}
           />
           <p className="leading-relaxed" style={{ color: MUTED }}>
-            RepSet is free to use and its source is public. It is a logging
-            tool, not a coach or a medical service. Train sensibly and stop if
-            something hurts.
+            RepSet is open source. The workout logger is free and always will
+            be — every feature that records your training works without paying
+            for anything, and the code is public so you can read it, run it, or
+            build your own. RepSet Max is optional: it removes the ads, unlocks
+            AI-assisted planning, and is what funds the development. RepSet is
+            not a medical service.
           </p>
         </div>
 
@@ -116,10 +119,23 @@ const RepSetTerms = () => {
 
           <Section title="2. What RepSet is">
             <p>
-              RepSet is a training app for logging workouts. It provides an
-              exercise library, reusable templates, live session tracking, a
-              rest timer, and progress figures computed from the sessions you
-              record. The app, its library and its features are free to use.
+              RepSet is an open-source training app for logging workouts. It
+              provides an exercise library, reusable templates, live session
+              tracking, a rest timer, and progress figures computed from the
+              sessions you record.
+            </p>
+            <p>
+              Every one of those features is free, and none of them is ever
+              placed behind a payment. You can also build the app yourself from
+              the public source and run it without paying anyone, without any
+              account, and without our services. The free official app on the
+              stores may display advertising outside an active workout, which
+              is what pays for it.
+            </p>
+            <p>
+              Paying is a choice, not a requirement. RepSet Max exists so the
+              people who find the app useful can keep it being developed —
+              nothing about logging a workout depends on it.
             </p>
           </Section>
 
@@ -141,28 +157,54 @@ const RepSetTerms = () => {
             </p>
           </Section>
 
-          <Section title="4. The AI assistant">
+          <Section title="4. AI-assisted session planning">
             <p>
-              The AI assistant is optional. It generates routine suggestions
-              from language models provided by OpenRouter, and its output can be
-              wrong, incomplete, or unsuitable for you. Treat every generated
-              routine as a starting point to review with your own judgement, not
-              as a plan validated for your situation.
+              AI-assisted planning is optional and requires an active RepSet Max
+              entitlement. RepSet sends the request you write and a shortlist of
+              exercise names to its planning service, which uses models supplied
+              through OpenRouter. Your workout history, measurements, and logged
+              sets are not included.
             </p>
             <p>
-              You may supply your own OpenRouter API key, in which case your use
-              is governed by your agreement with OpenRouter and you are
-              responsible for the costs it incurs. If instead you pay for hosted
-              generations, that charge covers the model usage. Availability of
-              any specific model depends on OpenRouter and may change.
+              Generated output can be wrong, incomplete, or unsuitable for you.
+              Treat every generated session as a starting point to review with
+              your own judgement, not as a plan validated for your body or
+              circumstances.
             </p>
             <p>
-              Keep your API key confidential. You are responsible for activity
-              carried out with a key you enter into the app.
+              Max includes a limited allowance for hosted planning. Limits,
+              model availability, and the planning feature itself may change to
+              account for cost, safety, abuse prevention, or provider
+              availability. The server, not the app, decides whether a request
+              is authorized.
             </p>
           </Section>
 
-          <Section title="5. Your data">
+          <Section title="5. RepSet Max, billing, and advertising">
+            <p>
+              RepSet Max is an optional auto-renewing subscription. Its current
+              price, billing period, trial or introductory offer, if any, are
+              shown by the App Store or Google Play before you confirm a
+              purchase. The store charges your account and processes payment;
+              RepSet never receives your card details.
+            </p>
+            <p>
+              Subscriptions renew unless you cancel through your store account
+              before the renewal deadline shown by that store. Cancellation
+              stops future renewals and Max remains available through the end of
+              the paid period. Refunds and billing disputes are handled under
+              the store's rules. You can restore an eligible purchase from the
+              app.
+            </p>
+            <p>
+              Max removes advertising from the official app and includes the AI
+              planning allowance described above. The free official app may
+              show banners and an occasional ad after a completed workout, but
+              never during an active workout.
+            </p>
+          </Section>
+
+          <Section title="6. Your account and data">
             <p>
               Your workouts are stored on your device rather than on a server.
               You are responsible for your own backups. Uninstalling the app, or
@@ -178,9 +220,15 @@ const RepSetTerms = () => {
               </Link>
               .
             </p>
+            <p>
+              An account is optional for the core logger. If you sign in, it is
+              used to identify your Max entitlement across devices; it does not
+              upload or synchronize your workouts. Account deletion instructions
+              are available on the Support page.
+            </p>
           </Section>
 
-          <Section title="6. Open source and reuse">
+          <Section title="7. Open source and reuse">
             <p>
               RepSet's source code is published so that anyone can read it, run
               it, learn from it, and build on it. Your rights to reuse, modify
@@ -197,7 +245,7 @@ const RepSetTerms = () => {
             </p>
           </Section>
 
-          <Section title="7. Acceptable use">
+          <Section title="8. Acceptable use">
             <p>You agree not to:</p>
             <ul className="ml-4 list-inside list-disc space-y-1.5">
               <li>Use the app for any unlawful purpose</li>
@@ -215,17 +263,17 @@ const RepSetTerms = () => {
             </ul>
           </Section>
 
-          <Section title="8. Availability">
+          <Section title="9. Availability">
             <p>
-              RepSet is provided as-is and free of charge. Features may change
-              and the exercise catalog service may be modified or interrupted.
-              The app's core logging works offline, so a service interruption
-              does not prevent you from training or from reaching sessions you
-              have already recorded.
+              RepSet is provided as-is. Features may change, and the exercise
+              catalogue, advertising, purchase verification, or planning
+              services may be modified or interrupted. The app's core logging
+              works offline, so a service interruption does not prevent you from
+              training or reaching sessions already recorded on your device.
             </p>
           </Section>
 
-          <Section title="9. Disclaimer and limitation of liability">
+          <Section title="10. Disclaimer and limitation of liability">
             <p>
               To the fullest extent permitted by law, RepSet is provided without
               warranties of any kind, express or implied, including
@@ -243,7 +291,7 @@ const RepSetTerms = () => {
             </p>
           </Section>
 
-          <Section title="10. Changes to these terms">
+          <Section title="11. Changes to these terms">
             <p>
               These terms may be updated. The current version is always the one
               on this page, with its date shown above. Continuing to use the app
@@ -251,7 +299,7 @@ const RepSetTerms = () => {
             </p>
           </Section>
 
-          <Section title="11. Contact">
+          <Section title="12. Contact">
             <p>
               Questions about these terms can be raised through the project
               repository, or by contacting Oscar Crescente through{" "}
@@ -279,6 +327,12 @@ const RepSetTerms = () => {
             className="transition-colors hover:text-white"
           >
             Privacy
+          </Link>
+          <Link
+            to="/repset/support"
+            className="transition-colors hover:text-white"
+          >
+            Support
           </Link>
           <Link to="/#projects" className="transition-colors hover:text-white">
             Back to portfolio
