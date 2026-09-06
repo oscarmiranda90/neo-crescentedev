@@ -6,7 +6,11 @@
       "Bash(npx --prefix /Volumes/CORSAIR/crescenteDEV/neo-crescentedev playwright --version)",
       "Bash(ls /usr/local/lib/node_modules/ | grep play)",
       "Read(//usr/local/lib/node_modules/**)",
-      "Read(//Users/oscarcrescendo/.claude/skills/critique/reference/**)"
+      "Read(//Users/oscarcrescendo/.claude/skills/critique/reference/**)",
+      "Bash(eza -la --tree --level=2 /Volumes/CORSAIR/ultraprompt)",
+      "Bash(eza -la /Volumes/CORSAIR/crescenteDEV/neo-crescentedev/src/pages /Volumes/CORSAIR/crescenteDEV/neo-crescentedev/public)",
+      "Bash(rg -rn \"oscar.dreamtheater\" /Volumes/CORSAIR/crescenteDEV/neo-crescentedev --glob '!node_modules' -l)",
+      "Bash(sd 'oscar\\\\.dreamtheater@gmail\\\\.com' 'hola@ultramare.dev' /Volumes/CORSAIR/crescenteDEV/neo-crescentedev/src/pages/SupaFilmPrivacy.tsx /Volumes/CORSAIR/crescenteDEV/neo-crescentedev/src/pages/SupaFilmTerms.tsx)"
     ]
   }
 }
