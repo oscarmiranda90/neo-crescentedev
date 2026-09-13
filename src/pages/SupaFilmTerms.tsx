@@ -11,7 +11,7 @@ const STONE = "#EAE8E2";
 const RUST = "#AE4A3E";
 const MUTED = "#6B6E72";
 
-const LAST_UPDATED = "6 September 2026";
+const LAST_UPDATED = "13 September 2026";
 
 const PAGE_TITLE = "Terms of Use | SupaFilm";
 const PAGE_DESCRIPTION =
@@ -133,6 +133,28 @@ const SupaFilmTerms = () => {
           </p>
         </Section>
 
+        <Section title="Accounts are optional">
+          <p>
+            You do not need to give us personal information to use SupaFilm.
+            The app creates an anonymous account on first launch so it can
+            reach our services.
+          </p>
+          <p>
+            You may optionally add an email address to that account to back up
+            your scripts and restore them on another device. If you do, give us
+            an address you actually control and keep access to that inbox:
+            sign-in and recovery work through email links, so whoever controls
+            the inbox controls the account. Tell us promptly if you believe
+            someone else has gained access.
+          </p>
+          <p>
+            You can ask us to delete your account, and everything stored for
+            it, at any time — see the Privacy Policy for how. We may suspend or
+            end an account used to abuse the service, break these terms, or
+            harm other users or our infrastructure.
+          </p>
+        </Section>
+
         <Section title="Your content stays yours">
           <p>
             You keep all rights to the scripts you write and the videos you
@@ -230,10 +252,12 @@ const SupaFilmTerms = () => {
 
         <Section title="Termination">
           <p>
-            You can stop using SupaFilm at any time by deleting the app. We may
-            suspend or end access to the cloud-based features if these terms are
-            breached in a way that is unlawful or harmful to the service or its
-            users.
+            You can stop using SupaFilm at any time by deleting the app, and
+            you can ask us to delete your account at any time. We may suspend
+            or end access to the cloud-based features, or to an account, if
+            these terms are breached in a way that is unlawful or harmful to
+            the service or its users. Your ownership of your own content
+            survives any termination.
           </p>
         </Section>
 

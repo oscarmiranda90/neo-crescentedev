@@ -11,11 +11,11 @@ const STONE = "#EAE8E2";
 const RUST = "#AE4A3E";
 const MUTED = "#6B6E72";
 
-const LAST_UPDATED = "6 September 2026";
+const LAST_UPDATED = "13 September 2026";
 
 const PAGE_TITLE = "Privacy Policy | SupaFilm";
 const PAGE_DESCRIPTION =
-  "How SupaFilm handles your data: scripts and recordings stay on your device, and a take is only uploaded when you ask for an AI edit.";
+  "How SupaFilm handles your data: scripts and recordings stay on your device, an account is optional, and a take is only uploaded when you ask for an AI edit.";
 
 const Section = ({
   title,
@@ -118,10 +118,12 @@ const SupaFilmPrivacy = () => {
         <Section title="The short version">
           <p>
             SupaFilm is built to work without an account. Your scripts and your
-            recordings live on your device. A video only leaves your phone when
-            you explicitly ask for an AI edit, and it is used for that edit and
-            nothing else. We do not sell your data, and we do not use your
-            recordings to train AI models.
+            recordings live on your device. You can optionally back up your
+            scripts with an email address so they survive a lost or replaced
+            phone — that is the only thing an account changes. A video only
+            leaves your phone when you explicitly ask for an AI edit, and it is
+            used for that edit and nothing else. We do not sell your data, and
+            we do not use your recordings to train AI models.
           </p>
         </Section>
 
@@ -132,7 +134,7 @@ const SupaFilmPrivacy = () => {
           </p>
           <Bullets
             items={[
-              "Your scripts and their titles, stored in a local database on the device.",
+              "Your scripts and their titles, stored in a local database on the device. If you turn on email backup, a copy is also synced to your account — see \"Optional account and script backup\" below.",
               "Your reading preferences: pace, text size, reading direction and the position of the reading panel.",
               "Videos you record, until you save them to Photos, share them, or request an AI edit.",
               "Trimmed versions of your takes produced on the device.",
@@ -201,12 +203,19 @@ const SupaFilmPrivacy = () => {
 
         <Section title="How long uploads are kept">
           <p>
-            Uploaded originals and rendered results are held in private storage
-            only as long as needed to produce and deliver your edit, and are
-            then removed on a routine schedule. You can delete an edit, and
-            request deletion of its original, from inside the app at any time.
-            Temporary working files created during rendering are deleted when
-            the job finishes.
+            Uploaded project source video is deleted automatically{" "}
+            <strong style={{ color: GRAPHITE }}>one day</strong> after upload by
+            a storage lifecycle rule, and uploads that never complete are
+            discarded after seven days. Rendered results stay available until
+            you delete them, so you have time to download them. You can delete
+            an edit, and request deletion of its original, from inside the app
+            at any time. Temporary working files created during rendering are
+            deleted when the job finishes.
+          </p>
+          <p>
+            Scripts you have backed up are kept until you delete them or delete
+            your account. Cloud storage is not a backup service — keep your own
+            copies of anything you need to retain.
           </p>
         </Section>
 
@@ -219,6 +228,8 @@ const SupaFilmPrivacy = () => {
           <Bullets
             items={[
               "Cloud infrastructure, for the API, private file storage and the rendering that produces your edit.",
+              "A managed database and authentication provider, which holds your anonymous account, your email address if you add one, and any scripts you back up.",
+              "A bot-protection provider, used only to verify that backup and recovery email requests come from a person.",
               "AI model providers, to transcribe your take's audio and to generate scripts and edit plans.",
               "Apple, for App Store purchases, and a subscription management provider that records whether your Pro subscription is active.",
             ]}
@@ -236,13 +247,78 @@ const SupaFilmPrivacy = () => {
           </p>
         </Section>
 
-        <Section title="Accounts and identifiers">
+        <Section title="Optional account and script backup">
           <p>
-            Recording does not require an account. To keep Pro entitlements and
-            your uploads tied to the right person, SupaFilm uses an installation
-            identifier issued to your device. It is not your name, your email or
-            an advertising identifier, and it is reset if you delete and
-            reinstall the app.
+            Recording does not require an account. On first launch SupaFilm
+            creates an <strong style={{ color: GRAPHITE }}>anonymous account</strong>{" "}
+            so the app can reach our services. It is identified by a random
+            identifier — not your name, your email, or an advertising
+            identifier.
+          </p>
+          <p>
+            If you want your scripts to survive a lost or replaced phone, you
+            can add an email address to that anonymous account. Adding an email
+            does not change the account's identifier; it only adds a way to
+            recover it. Backup is never required to write, record, edit or
+            export.
+          </p>
+          <p>When — and only when — you turn on email backup, we store:</p>
+          <Bullets
+            items={[
+              <>
+                <strong style={{ color: GRAPHITE }}>Your email address</strong>{" "}
+                — used to send you a sign-in link and restore your scripts on a
+                new device.
+              </>,
+              <>
+                <strong style={{ color: GRAPHITE }}>Your scripts</strong> — the
+                title and full text of each script, so it can be given back to
+                you.
+              </>,
+              <>
+                <strong style={{ color: GRAPHITE }}>
+                  Their reading settings
+                </strong>{" "}
+                — pace, text size, orientation, and the position and size of
+                the reading panel, so a restored script reads the way you left
+                it.
+              </>,
+            ]}
+          />
+          <p>
+            Your scripts are protected by database rules that allow only your
+            own account to read or change your rows. We do not read your
+            scripts, sell them, or use them to train any model. If you never
+            turn on backup, your scripts never leave the device.
+          </p>
+          <p>
+            When you request a backup or recovery email, a bot-protection check
+            runs first. Its provider receives the technical signals needed to
+            tell a person from a bot, and returns a one-time token we use only
+            to allow that single email.
+          </p>
+        </Section>
+
+        <Section title="Deleting your account">
+          <p>
+            You can delete your account and everything stored for it at any
+            time. Write to{" "}
+            <a
+              href="mailto:hola@ultramare.dev"
+              className="font-semibold underline decoration-1 underline-offset-4 transition-opacity hover:opacity-70"
+              style={{ color: RUST }}
+            >
+              hola@ultramare.dev
+            </a>{" "}
+            from the email address on the account, or, if the account is still
+            anonymous, include the account identifier shown in the app under
+            Settings. Deleting the account removes every script stored for it.
+          </p>
+          <p>
+            You can also remove individual items yourself at any time: delete a
+            script in the app to remove it from your synced library, and use
+            Delete my data in Settings to remove the takes, projects and
+            rendered videos the editor holds for you.
           </p>
         </Section>
 
