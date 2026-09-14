@@ -121,6 +121,17 @@ const SupaFilmTerms = () => {
             or using the app, you agree to them. If you do not agree, please do
             not use SupaFilm.
           </p>
+          <p>
+            These terms supplement Apple&apos;s{" "}
+            <a
+              href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/"
+              className="font-semibold underline decoration-1 underline-offset-4 transition-opacity hover:opacity-70"
+              style={{ color: RUST }}
+            >
+              Standard Licensed Application End User License Agreement
+            </a>
+            . If they conflict, Apple&apos;s agreement controls.
+          </p>
         </Section>
 
         <Section title="What SupaFilm is">
@@ -148,10 +159,18 @@ const SupaFilmTerms = () => {
             someone else has gained access.
           </p>
           <p>
-            You can ask us to delete your account, and everything stored for
-            it, at any time — see the Privacy Policy for how. We may suspend or
-            end an account used to abuse the service, break these terms, or
-            harm other users or our infrastructure.
+            You can delete your account and everything stored for it from the
+            app&apos;s Settings screen at any time — see the{" "}
+            <Link
+              to="/supafilm/privacy"
+              className="font-semibold underline decoration-1 underline-offset-4 transition-opacity hover:opacity-70"
+              style={{ color: RUST }}
+            >
+              Privacy Policy
+            </Link>{" "}
+            for details. We may suspend or end an account used to abuse the
+            service, break these terms, or harm other users or our
+            infrastructure.
           </p>
         </Section>
 
@@ -163,10 +182,11 @@ const SupaFilmTerms = () => {
           <p>
             When you request an AI feature, you give us permission to process
             the content you submitted for the limited purpose of producing that
-            result and returning it to you: transcribing your take's audio,
-            generating or rewriting a script, and rendering your edited video.
-            That permission ends when the feature has done its work. We do not
-            use your content to train AI models.
+            result and making it available to you: transcribing your take&apos;s
+            audio, generating or rewriting a script, and generating an edit plan
+            that the app renders on your device. That permission lasts only for
+            the processing and retention described in the Privacy Policy. We do
+            not use your content to train AI models.
           </p>
         </Section>
 
@@ -190,7 +210,7 @@ const SupaFilmTerms = () => {
         <Section title="SupaFilm Pro and billing">
           <Bullets
             items={[
-              "SupaFilm Pro is an auto-renewing subscription sold at $29.99 per year, or the equivalent in your local currency as shown in the App Store at the time of purchase.",
+              "SupaFilm Pro is an auto-renewing subscription offered in monthly and annual plans when available. The price and billing period shown in the app and Apple's purchase sheet for your storefront control your purchase.",
               "Payment is charged to your Apple ID at confirmation of purchase.",
               "The subscription renews automatically unless auto-renew is turned off at least 24 hours before the end of the current period, and your account is charged for renewal within 24 hours before that period ends.",
               "You can manage or cancel the subscription in your App Store account settings. Cancelling stops the next renewal; it does not retroactively refund the current period.",
@@ -210,9 +230,11 @@ const SupaFilmTerms = () => {
           </p>
           <p>
             AI video edits are designed for one vertical take of up to three
-            minutes. Editing runs on shared infrastructure, so processing times
-            vary and a job can occasionally fail. If a render fails, you can
-            retry it. Your original take is never modified by an edit.
+            minutes. Cloud analysis runs on shared infrastructure, so processing
+            times vary and a job can occasionally fail. The final video is
+            rendered on your device from your original recording. You can try a
+            failed job or export again, and your original take is never modified
+            by an edit.
           </p>
         </Section>
 
@@ -228,9 +250,10 @@ const SupaFilmTerms = () => {
 
         <Section title="Your responsibility for your files">
           <p>
-            Scripts and recordings are stored on your device, and SupaFilm does
-            not back them up for you. Deleting the app deletes its local data.
-            Save takes you want to keep to your photo library.
+            Scripts and recordings are stored on your device. Scripts are also
+            synced only if you choose optional email backup; recordings and
+            finished exports are not a cloud backup. Deleting the app deletes
+            its local data. Save takes you want to keep to your photo library.
           </p>
         </Section>
 
@@ -253,11 +276,12 @@ const SupaFilmTerms = () => {
         <Section title="Termination">
           <p>
             You can stop using SupaFilm at any time by deleting the app, and
-            you can ask us to delete your account at any time. We may suspend
-            or end access to the cloud-based features, or to an account, if
-            these terms are breached in a way that is unlawful or harmful to
-            the service or its users. Your ownership of your own content
-            survives any termination.
+            you can delete your account from Settings at any time. Account
+            deletion does not cancel an App Store subscription; manage or
+            cancel that separately through Apple. We may suspend or end access
+            to the cloud-based features, or to an account, if these terms are
+            breached in a way that is unlawful or harmful to the service or its
+            users. Your ownership of your own content survives any termination.
           </p>
         </Section>
 

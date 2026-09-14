@@ -15,7 +15,7 @@ const LAST_UPDATED = "13 September 2026";
 
 const PAGE_TITLE = "Privacy Policy | SupaFilm";
 const PAGE_DESCRIPTION =
-  "How SupaFilm handles your data: scripts and recordings stay on your device, an account is optional, and a take is only uploaded when you ask for an AI edit.";
+  "How SupaFilm handles your data: original recordings stay on your device, email backup is optional, and a lightweight copy is uploaded only when you request an AI edit.";
 
 const Section = ({
   title,
@@ -117,13 +117,14 @@ const SupaFilmPrivacy = () => {
       <main className="container mx-auto flex max-w-3xl flex-col gap-10 px-6 py-14 md:py-20">
         <Section title="The short version">
           <p>
-            SupaFilm is built to work without an account. Your scripts and your
-            recordings live on your device. You can optionally back up your
-            scripts with an email address so they survive a lost or replaced
-            phone — that is the only thing an account changes. A video only
-            leaves your phone when you explicitly ask for an AI edit, and it is
-            used for that edit and nothing else. We do not sell your data, and
-            we do not use your recordings to train AI models.
+            SupaFilm is built to work without a sign-in. Your original
+            recordings stay on your device, and your scripts are stored there
+            unless you choose email backup. Text you submit to an AI script tool
+            is processed in the cloud. When you explicitly request an AI edit,
+            the app uploads a reduced-resolution video copy and extracted audio
+            for analysis; the full-quality original never leaves your phone.
+            We do not sell your data, and we do not use your recordings to
+            train AI models.
           </p>
         </Section>
 
@@ -136,8 +137,8 @@ const SupaFilmPrivacy = () => {
             items={[
               "Your scripts and their titles, stored in a local database on the device. If you turn on email backup, a copy is also synced to your account — see \"Optional account and script backup\" below.",
               "Your reading preferences: pace, text size, reading direction and the position of the reading panel.",
-              "Videos you record, until you save them to Photos, share them, or request an AI edit.",
-              "Trimmed versions of your takes produced on the device.",
+              "The full-quality videos you record, including when you request an AI edit. The app uploads only a smaller analysis copy for that feature.",
+              "Trimmed takes and finished videos rendered by the editor on your device.",
             ]}
           />
           <p>
@@ -156,8 +157,7 @@ const SupaFilmPrivacy = () => {
               </>,
               <>
                 <strong style={{ color: GRAPHITE }}>Microphone</strong> — to
-                record audio with your take, and to capture speech when you use
-                voice-based script features.
+                record audio with your take.
               </>,
               <>
                 <strong style={{ color: GRAPHITE }}>Photo library</strong> — to
@@ -182,39 +182,49 @@ const SupaFilmPrivacy = () => {
             items={[
               <>
                 <strong style={{ color: GRAPHITE }}>Script tools</strong> — the
-                text of the script you are working on, or a voice recording you
-                choose to dictate, is sent so it can be written, rewritten or
-                improved and returned to you.
+                idea or script text you submit is sent so it can be written,
+                rewritten or improved and returned to you.
               </>,
               <>
                 <strong style={{ color: GRAPHITE }}>AI video edits</strong> —
-                the take you select is uploaded to private storage. Its audio is
-                transcribed to time the captions, an edit plan is generated, and
-                the finished vertical video and its thumbnail are returned to
-                you.
+                the app creates and uploads a silent, reduced-resolution video
+                copy plus a separate audio track. The audio is transcribed and
+                cloud AI produces an edit plan containing captions, timing and
+                visual directions. SupaFilm then applies that plan to your
+                full-quality original and renders the finished video on your
+                device.
+              </>,
+              <>
+                <strong style={{ color: GRAPHITE }}>Optional gestures</strong>{" "}
+                — when Gestures is on, hand poses are detected on your device.
+                Only the gesture type and timing are added to the edit request;
+                SupaFilm does not create or store a biometric identity template.
               </>,
             ]}
           />
           <p>
-            Nothing is uploaded in the background. A video is transferred only
-            after you request an edit for that specific take.
+            An upload begins only after you request an edit for that specific
+            take, and the app tells you to keep the upload screen open until the
+            transfer finishes. Once it is uploaded, cloud analysis may continue
+            while you use another part of the app or close it.
           </p>
         </Section>
 
         <Section title="How long uploads are kept">
           <p>
-            Uploaded project source video is deleted automatically{" "}
+            The reduced-resolution project video is deleted automatically{" "}
             <strong style={{ color: GRAPHITE }}>one day</strong> after upload by
-            a storage lifecycle rule, and uploads that never complete are
-            discarded after seven days. Rendered results stay available until
-            you delete them, so you have time to download them. You can delete
-            an edit, and request deletion of its original, from inside the app
-            at any time. Temporary working files created during rendering are
-            deleted when the job finishes.
+            a storage lifecycle rule, and incomplete multipart uploads are
+            discarded after seven days. The separate audio file is removed
+            after processing or cleanup. SupaFilm does not keep a cloud-rendered
+            finished video: the final export is created on your device.
           </p>
           <p>
-            Scripts you have backed up are kept until you delete them or delete
-            your account. Cloud storage is not a backup service — keep your own
+            The transcript, edit plan and job status are kept with your account
+            so you can reopen and revise the edit. Scripts you back up are kept
+            until you delete them or delete your account. Using Delete Account
+            in Settings removes or anonymises the account records held by our
+            services. Cloud storage is not a backup service — keep your own
             copies of anything you need to retain.
           </p>
         </Section>
@@ -227,11 +237,10 @@ const SupaFilmPrivacy = () => {
           </p>
           <Bullets
             items={[
-              "Cloud infrastructure, for the API, private file storage and the rendering that produces your edit.",
-              "A managed database and authentication provider, which holds your anonymous account, your email address if you add one, and any scripts you back up.",
-              "A bot-protection provider, used only to verify that backup and recovery email requests come from a person.",
-              "AI model providers, to transcribe your take's audio and to generate scripts and edit plans.",
-              "Apple, for App Store purchases, and a subscription management provider that records whether your Pro subscription is active.",
+              "Cloudflare, for the API, queue, private temporary file storage, bot protection and audio transcription.",
+              "Supabase, for the anonymous account, authentication, your email address if you add one, and any scripts you choose to back up.",
+              "OpenRouter and the AI model providers selected through it, to generate scripts and edit plans from the content you submit.",
+              "Apple, for App Store purchases and optional push notifications, and RevenueCat, which records whether your Pro subscription is active.",
             ]}
           />
           <p>
@@ -244,6 +253,33 @@ const SupaFilmPrivacy = () => {
           <p>
             Your recordings, your scripts and the videos SupaFilm produces for
             you are not used to train AI models.
+          </p>
+        </Section>
+
+        <Section title="Notifications">
+          <p>
+            If you allow notifications, Apple gives SupaFilm a device token.
+            The app sends that token with an edit request so our service can
+            notify you when the edit is ready. It is not used for advertising,
+            and you can disable notifications at any time in iOS Settings.
+          </p>
+        </Section>
+
+        <Section title="Account and service records">
+          <p>
+            To operate the service, we keep a random account identifier, your
+            subscription product and entitlement status, and records needed to
+            track requested edits. An edit record can include its status,
+            transcript, edit plan and timestamps. If you add email backup, the
+            account also contains your email and synced scripts. If you enable
+            notifications, it can also contain the Apple device token described
+            above.
+          </p>
+          <p>
+            Our network providers also process standard connection information,
+            such as an IP address and request headers, to deliver requests,
+            protect the service and diagnose failures. We do not use this
+            information for advertising or cross-app tracking.
           </p>
         </Section>
 
@@ -302,7 +338,8 @@ const SupaFilmPrivacy = () => {
         <Section title="Deleting your account">
           <p>
             You can delete your account and everything stored for it at any
-            time. Write to{" "}
+            time from <strong style={{ color: GRAPHITE }}>Settings → Delete Account</strong>{" "}
+            in the app. If you cannot access the app, write to{" "}
             <a
               href="mailto:hola@ultramare.dev"
               className="font-semibold underline decoration-1 underline-offset-4 transition-opacity hover:opacity-70"
@@ -310,15 +347,18 @@ const SupaFilmPrivacy = () => {
             >
               hola@ultramare.dev
             </a>{" "}
-            from the email address on the account, or, if the account is still
-            anonymous, include the account identifier shown in the app under
-            Settings. Deleting the account removes every script stored for it.
+            from the email address on the account, or include the account
+            identifier shown in Settings. Deleting the account removes backed-up
+            scripts, project media and account-linked edit data. Anonymous
+            cancellation records may remain only after their owner and submitted
+            content have been removed.
           </p>
           <p>
-            You can also remove individual items yourself at any time: delete a
-            script in the app to remove it from your synced library, and use
-            Delete my data in Settings to remove the takes, projects and
-            rendered videos the editor holds for you.
+            You can also remove individual local items yourself. Deleting a
+            synced script removes it from your script library; Delete Account is
+            the control that erases the account-linked data held by our cloud
+            services. Deleting your account does not cancel an App Store
+            subscription, which you manage separately through Apple.
           </p>
         </Section>
 
@@ -332,10 +372,10 @@ const SupaFilmPrivacy = () => {
 
         <Section title="Your rights">
           <p>
-            Because most of your content stays on your device, you control it
-            directly: delete a script, a take or an edit in the app and it is
-            gone. For anything held on our side, you can request access,
-            correction or deletion by contacting us at the address below.
+            Because most of your content stays on your device, you control local
+            copies directly. For anything held on our side, use Delete Account
+            or request access, correction or deletion by contacting us at the
+            address below.
             Depending on where you live, you may also have the right to object
             to or restrict processing, or to lodge a complaint with your local
             data protection authority.

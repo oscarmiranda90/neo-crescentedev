@@ -20,6 +20,7 @@ import RepSetSupport from '@/pages/RepSetSupport'
 import SupaFilm from '@/pages/SupaFilm'
 import SupaFilmPrivacy from '@/pages/SupaFilmPrivacy'
 import SupaFilmTerms from '@/pages/SupaFilmTerms'
+import SupaFilmSupport from '@/pages/SupaFilmSupport'
 
 class ErrorBoundary extends Component<{ children: ReactNode }, { error: Error | null }> {
     state = { error: null }
@@ -66,6 +67,7 @@ export default function App() {
                         <Route path="/supafilm" element={<SupaFilm />} />
                         <Route path="/supafilm/privacy" element={<SupaFilmPrivacy />} />
                         <Route path="/supafilm/terms" element={<SupaFilmTerms />} />
+                        <Route path="/supafilm/support" element={<SupaFilmSupport />} />
                         <Route
                             path="*"
                             element={

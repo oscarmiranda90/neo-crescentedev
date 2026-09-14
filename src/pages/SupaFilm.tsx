@@ -75,11 +75,11 @@ const features = [
 const proFeatures = [
   {
     title: "AI Script Studio",
-    body: "Describe the video you want and get a spoken script back. Paste an existing one to improve it, or rewrite it for 15, 30 or 60 seconds.",
+    body: "Describe the video you want and get a spoken script back. Paste an existing one to improve it, then make it shorter, longer or better matched to your tone.",
   },
   {
-    title: "Voice Dump",
-    body: "Talk freely for a minute. SupaFilm strips the fillers, repetition and tangents, and returns a hook, a body and a CTA in your own voice.",
+    title: "Plan it in takes",
+    body: "Turn one idea into a connected sequence of takes, review each part, rewrite what needs work and keep every approved recording organised.",
   },
   {
     title: "Script coaching",
@@ -94,8 +94,8 @@ const proFeatures = [
     body: "Poster for large type that stops the scroll, Cuts for precise punch-ins on the pauses, and Calm for a single quiet caption and nothing else.",
   },
   {
-    title: "Captions and sync",
-    body: "Timed captions on your takes, advanced recording options, and your script library carried across your devices.",
+    title: "Gestures and smart elements",
+    body: "Let a hand gesture take priority at the right moment, or add large words, screens and context-aware illustrated elements to the timeline yourself.",
   },
 ];
 
@@ -113,13 +113,13 @@ const freeFeatures = [
 
 const proList = [
   "Everything in Free",
-  "AI Script Studio and Voice Dump",
+  "AI Script Studio and take planning",
   "Rewrite, shorten, expand and retone",
   "Hook and CTA coaching",
   "AI video edits in three styles",
-  "Timed captions",
-  "Advanced recording options",
-  "Script sync across devices",
+  "Timed captions, large words and screens",
+  "Gesture-driven and context-aware elements",
+  "Optional script sync across devices",
 ];
 
 const faqs = [
@@ -129,7 +129,7 @@ const faqs = [
   },
   {
     q: "Do I need an account?",
-    a: "No. Scripts, the teleprompter, recording, review and trimming all work without signing in, and your scripts are stored locally on your device. An account is only involved when you use Pro features that run in the cloud.",
+    a: "No sign-in is required. Scripts, the teleprompter, recording, review and trimming work locally, and cloud features use an anonymous account. You only add an email if you choose script backup and recovery.",
   },
   {
     q: "Is the free version actually usable?",
@@ -137,7 +137,7 @@ const faqs = [
   },
   {
     q: "What does an AI edit produce?",
-    a: "You pick a style, and SupaFilm returns a vertical MP4 with an opening hook, captions timed to your words, emphasis on key ideas, up to three editorial overlays and a thumbnail. Your original take is never modified.",
+    a: "You pick a style, and SupaFilm creates an editable plan with an opening hook, captions timed to your words, large text, screens and context-aware visual elements. The final vertical MP4 is rendered on your device from the original take, which is never modified.",
   },
   {
     q: "How long can a take be?",
@@ -145,11 +145,11 @@ const faqs = [
   },
   {
     q: "Does an AI edit need an internet connection?",
-    a: "Yes. The edit is produced in the cloud, so it needs a connection. The teleprompter itself, and everything else in the free app, works entirely offline.",
+    a: "Cloud analysis needs a connection to transcribe the audio and design the edit. The final export is rendered on your device, and the teleprompter and free recording tools work offline.",
   },
   {
     q: "What happens to my video?",
-    a: "A take is only uploaded when you ask for an AI edit. It is used to produce that edit and nothing else, it is never used to train models, and you can delete the result and the original from the app.",
+    a: "Only when you request an AI edit, SupaFilm uploads a reduced-resolution video copy and separate audio for analysis. The full-quality original stays on your device, uploads are never used to train models, and the video copy is automatically deleted from cloud storage after one day.",
   },
 ];
 
@@ -462,7 +462,7 @@ const SupaFilm = () => {
             Pricing.
           </h2>
           <p className="mt-3 text-lg" style={{ color: MUTED, maxWidth: "58ch" }}>
-            One subscription, billed yearly. The teleprompter itself stays free.
+            Monthly or annual Pro. The teleprompter itself stays free.
           </p>
 
           <div className="mt-10 grid gap-6 md:grid-cols-2">
@@ -522,17 +522,14 @@ const SupaFilm = () => {
               <p className="mt-1" style={{ color: "rgba(255,252,246,.62)" }}>
                 Write it faster, edit it automatically.
               </p>
-              <p className="mt-6 flex items-baseline gap-2">
-                <span className="text-4xl font-extrabold tracking-[-.03em]">
-                  $29.99
-                </span>
-                <span style={{ color: "rgba(255,252,246,.62)" }}>/ year</span>
+              <p className="mt-6 text-4xl font-extrabold tracking-[-.03em]">
+                Monthly or yearly
               </p>
               <p
                 className="mt-1 text-sm"
                 style={{ color: "rgba(255,252,246,.62)" }}
               >
-                About $2.50 a month.
+                Your local price is shown before purchase.
               </p>
               <ul className="mt-6 flex flex-col gap-2.5">
                 {proList.map((item) => (
@@ -563,11 +560,12 @@ const SupaFilm = () => {
           </div>
 
           <p className="mt-6 text-sm" style={{ color: MUTED, maxWidth: "72ch" }}>
-            Pro is billed through your App Store account and renews yearly
-            unless cancelled at least 24 hours before the period ends. Manage or
-            cancel it any time in your App Store settings. AI features need an
-            internet connection, and AI video edits are designed for one
-            vertical take of up to three minutes.
+            Pro is billed through your App Store account and renews for the
+            monthly or annual period you choose unless cancelled at least 24
+            hours before that period ends. Manage or cancel it any time in your
+            App Store settings. AI features need an internet connection, and AI
+            video edits are designed for one vertical take of up to three
+            minutes.
           </p>
         </div>
       </section>
@@ -648,6 +646,12 @@ const SupaFilm = () => {
               className="underline decoration-1 underline-offset-4 transition-opacity hover:opacity-70"
             >
               Terms of Use
+            </Link>
+            <Link
+              to="/supafilm/support"
+              className="underline decoration-1 underline-offset-4 transition-opacity hover:opacity-70"
+            >
+              Support
             </Link>
           </div>
         </div>
