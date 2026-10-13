@@ -8,27 +8,151 @@
     "hero": {
         "greeting": "Hi, I'm",
         "name": "Oscar Crescente",
-        "title": "Mobile Developer & Product Engineer",
-        "subtitle": "End-to-end digital products. From UX/UI and backend to App Store. Flutter, React, AI-powered, no compromises.",
+        "title": "Product Engineer",
+        "subtitle": "I turn your idea into a product with an undeniable value proposition: premium UI and a scalable, maintainable backend.",
         "cta_projects": "View Projects",
         "cta_linkedin": "LinkedIn",
-        "cta_contact": "Contact Me"
+        "cta_contact": "Contact Me",
+        "disciplines": "Value proposition · Premium UI · Scalable backend",
+        "scroll": "Explore my work",
+        "motion_pause": "Pause motion",
+        "motion_play": "Enable motion",
+        "factory": {
+            "label": "Assembly line: from idea to product",
+            "build": "Build",
+            "ai": "AI",
+            "rail": "Scene chapters",
+            "open": "View {{name}}",
+            "chapters": [
+                {
+                    "kicker": "iOS app",
+                    "title": "SupaFilm",
+                    "line": "Teleprompter with AI scripts and post-ready vertical videos."
+                },
+                {
+                    "kicker": "Real-time game",
+                    "title": "Mythika",
+                    "line": "Multiplayer puzzle battles on Flutter, Supabase and Durable Objects."
+                },
+                {
+                    "kicker": "Open-source app",
+                    "title": "RepSet",
+                    "line": "Training with 500+ exercises, templates and an AI assistant that builds routines."
+                },
+                {
+                    "kicker": "Web platform",
+                    "title": "Invitta",
+                    "line": "Digital invitations with RSVPs, seating and event coordination."
+                },
+                {
+                    "kicker": "Hermes agent",
+                    "title": "Minnie · U Factory",
+                    "line": "CEO of Ultramare's content factory: plans, produces and routes, running on Hermes Agent.",
+                    "link": "See the content factory's results"
+                }
+            ]
+        }
+    },
+    "philosophy": {
+        "kicker": "Philosophy",
+        "heading": "Your idea, turned into a product that's impossible to ignore.",
+        "pillars": [
+            {
+                "title": "An undeniable value proposition",
+                "text": "Before writing code I define what makes the product indispensable, and carry it into every screen and every flow."
+            },
+            {
+                "title": "Premium UI",
+                "text": "Interfaces crafted down to the detail, with design, motion and an experience that feels first-class from the first tap."
+            },
+            {
+                "title": "Scalable, maintainable backend",
+                "text": "Clean architecture and infrastructure that grows with the business, without technical debt holding back the next step."
+            }
+        ],
+        "closing": "A service ready to take $100M in capital if needed.",
+        "closing_note": "Product, design and engineering under one standard, from idea to launch."
     },
     "about": {
-        "heading": "About Me",
-        "bio1": "I deliver end-to-end digital products, covering every stage from UX/UI design and backend architecture to publishing and growth strategies. My expertise spans productivity, entertainment, fitness, finance and health applications.",
-        "bio2": "Complete development process: authentication systems, database design, API logic, intuitive UI/UX, smooth animations, and App Store deployment.",
-        "bio3": "Highly qualified in AI-powered tools and no-code accelerators, achieving elite results at exceptional speed without compromise on quality.",
-        "bio4": "Bilingual fluency in English & Spanish, with strong adaptability to any client ecosystem and workflow.",
-        "skills_heading": "Skills & Tools",
-        "resume": "Download Resume"
+        "heading": "I design, build and connect.",
+        "bio1": "I’m a Senior Product Engineer and founder of Ultramare.dev. I bring more than 5 years of digital product experience, a mobile focus on Flutter and Dart, and over 15 years in visual design and branding.",
+        "bio2": "I work from strategy and UX/UI through architecture, backend and App Store and Google Play releases. I build real-time systems with Cloudflare, Supabase and WebSockets, and apps with BLoC, Riverpod and Clean Architecture.",
+        "bio3": "I also build automations and multi-agent systems: GoHighLevel, Hermes, MCP and agent harnesses to connect tools, models and workflows.",
+        "bio4": "Based in Venezuela and working remotely in Spanish and English (C1), I bring design, engineering and business together.",
+        "skills_heading": "My toolkit",
+        "resume": "Download Resume",
+        "toolkit": {
+            "intro": "The tools I use to design, build, ship and automate. Each group links to real products where I use them.",
+            "used_in": "Used in",
+            "workflow": "My daily flow: Claude Code, Codex, Git and CI/CD, shipping straight to App Store Connect and Google Play Console.",
+            "stats": [
+                {
+                    "value": "15+",
+                    "label": "years of visual design and branding"
+                },
+                {
+                    "value": "5+",
+                    "label": "years building digital products"
+                },
+                {
+                    "value": "4",
+                    "label": "years specialized in Flutter"
+                },
+                {
+                    "value": "ES · EN",
+                    "label": "native Spanish, C1 English"
+                }
+            ],
+            "groups": {
+                "mobile": {
+                    "title": "Mobile",
+                    "line": "Native iOS and Android apps in Flutter, from first wireframe to store release: real-time, AI, offline mode and motion included.",
+                    "sections": {
+                        "core": "Core",
+                        "architecture": "Architecture",
+                        "data": "Data & sync",
+                        "capabilities": "Capabilities",
+                        "motion": "Motion",
+                        "shipping": "Shipping"
+                    },
+                    "pipeline": [
+                        "Wireframe",
+                        "Flutter UI",
+                        "State & data",
+                        "Real-time & AI",
+                        "App Store · Google Play"
+                    ]
+                },
+                "web": {
+                    "title": "Web & frontend",
+                    "line": "Fast websites and web platforms, with interactive interfaces when the product calls for it."
+                },
+                "backend": {
+                    "title": "Backend & real-time",
+                    "line": "Data, auth, multiplayer and live sessions on serverless infrastructure."
+                },
+                "ai": {
+                    "title": "AI & agents",
+                    "line": "Models, tool calling and orchestrated multi-agent systems for real work."
+                },
+                "automation": {
+                    "title": "Automation & growth",
+                    "line": "Lead capture, follow-up and operations, automated end to end."
+                },
+                "design": {
+                    "title": "Product & design",
+                    "line": "Strategy, UX/UI, design systems and branding: the product looks the way it works."
+                }
+            }
+        }
     },
     "projects": {
         "heading": "Projects",
         "live": "Live",
         "code": "Code",
         "no_projects": "Coming soon…",
-        "more_work": "More Work"
+        "more_work": "More Work",
+        "intro": "Real products, in production. Every one follows the same philosophy: clear value, premium UI and a backend that scales."
     },
     "blog": {
         "heading": "Latest Posts",
@@ -39,7 +163,7 @@
     },
     "contact": {
         "heading": "Let's work together.",
-        "subtext": "Whether you need a new product built or the right developer to build it - I can help.",
+        "subtext": "Tell me your idea and we'll turn it into a product with an undeniable value proposition, premium UI and a backend ready to scale.",
         "email_cta": "Send me an email",
         "whatsapp_cta": "Message me on WhatsApp"
     },

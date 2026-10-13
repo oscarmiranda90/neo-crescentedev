@@ -1,3 +1,9 @@
+import supafilmIcon from '@/assets/supafilm-icon.webp'
+import repsetIcon from '@/assets/repset-icon.webp'
+import mythikaIcon from '@/assets/mythika-icon.webp'
+import ribeyeIcon from '@/assets/ribeye-icon.webp'
+import barracudaCard from '@/assets/barracuda-card.webp'
+
 export interface Project {
     id: number
     title: string
@@ -17,7 +23,7 @@ export const projects: Project[] = [
             en: 'An iOS teleprompter that keeps your eyeline on the lens, with AI script writing and one-take edits that turn a recording into a post-ready vertical video.',
             es: 'Un teleprompter para iOS que mantiene tu mirada en el lente, con escritura de guiones por IA y ediciones de una sola toma que convierten una grabación en un video vertical listo para publicar.',
         },
-        image: 'https://placehold.co/600x400/FFFCF6/232528?text=SupaFilm',
+        image: supafilmIcon,
         liveUrl: '/supafilm',
         featured: true,
         tags: ['Flutter', 'iOS', 'AI'],
@@ -29,7 +35,7 @@ export const projects: Project[] = [
             en: 'A free, open-source training app with a 500+ exercise library, templates, live session tracking and progress history, plus an AI assistant that builds routines.',
             es: 'Una app de entrenamiento gratuita y open source con una biblioteca de más de 500 ejercicios, plantillas, seguimiento de sesión en vivo e historial de progreso, más un asistente de IA que arma rutinas.',
         },
-        image: 'https://placehold.co/600x400/D7FF4F/151714?text=RepSet',
+        image: repsetIcon,
         liveUrl: '/repset',
         repoUrl: 'https://github.com/oscarmiranda90/open-repset',
         featured: true,
@@ -39,13 +45,25 @@ export const projects: Project[] = [
         id: 9,
         title: 'Mythika: Puzzle Tournament',
         description: {
-            en: 'A puzzle game where strategy meets mythology. Compete in tournaments, unlock heroes, and rise through the ranks.',
-            es: 'Un juego de rompecabezas donde la estrategia se encuentra con la mitología. Compite en torneos, desbloquea héroes y asciende en las clasificaciones.',
+            en: 'A real-time puzzle battle game for iOS, with 9 gods across 3 pantheons and a 25-level campaign. Built with Flutter/BLoC, Supabase and Cloudflare Durable Objects for multiplayer.',
+            es: 'Un juego de batallas de puzzle en tiempo real para iOS, con 9 dioses en 3 panteones y una campaña de 25 niveles. Flutter/BLoC, Supabase y Cloudflare Durable Objects para el multiplayer.',
         },
-        image: 'https://placehold.co/600x400/FFFFFF/000000?text=Mythika',
+        image: mythikaIcon,
         liveUrl: 'https://apps.apple.com/us/app/mythika-puzzle-tournament/id6517363482',
         featured: true,
-        tags: ['Flutter', 'iOS', 'Mobile Game'],
+        tags: ['Flutter', 'BLoC', 'Cloudflare', 'Real-time'],
+    },
+    {
+        id: 12,
+        title: 'Barracuda Fencing',
+        description: {
+            en: 'A Florida fencing company run as a 100% automated business: an Astro website, GoHighLevel automations, Meta Ads campaigns and a WhatsApp bot.',
+            es: 'Una empresa de cercas en Florida operada de forma 100% automatizada: sitio web en Astro, automatizaciones en GoHighLevel, campañas de Meta Ads y bot de WhatsApp.',
+        },
+        image: barracudaCard,
+        liveUrl: 'https://www.barracudafencing.com',
+        featured: true,
+        tags: ['Astro', 'GoHighLevel', 'Automation', 'Meta Ads', 'WhatsApp bot'],
     },
     {
         id: 1,
@@ -57,7 +75,7 @@ export const projects: Project[] = [
         image: 'https://placehold.co/600x400/FDE047/000000?text=Invitta',
         liveUrl: 'https://invitta.app',
         featured: true,
-        tags: ['Next.js', 'Supabase', 'Web'],
+        tags: ['Next.js', 'TypeScript', 'Supabase', 'Web'],
     },
     {
         id: 2,
@@ -91,7 +109,7 @@ export const projects: Project[] = [
             en: 'Nutrition tracker built for the carnivore diet - log meals, macros and stay on track.',
             es: 'Rastreador de nutrición para la dieta carnívora - registra comidas, macros y mantente en curso.',
         },
-        image: 'https://placehold.co/600x400/FDE047/000000?text=Ribeye',
+        image: ribeyeIcon,
         liveUrl: 'https://apps.apple.com/us/app/ribeye-carnivore-diet/id6754494858',
         featured: true,
         tags: ['Flutter', 'Supabase', 'Mobile'],

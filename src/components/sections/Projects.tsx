@@ -27,10 +27,11 @@ export default function Projects() {
             />
 
             <div className="max-w-5xl mx-auto px-4">
-                <h2 className="reveal reveal-fade-up text-4xl sm:text-5xl font-bold mb-12" data-delay="0ms">
+                <h2 className="reveal reveal-fade-up text-4xl sm:text-5xl font-bold mb-4" data-delay="0ms">
                     {t('projects.heading')}
                     <span className="text-main">.</span>
                 </h2>
+                <p className="text-base sm:text-lg leading-relaxed max-w-2xl mb-12">{t('projects.intro')}</p>
 
                 {projects.length === 0 ? (
                     <p className="text-lg font-mono">{t('projects.no_projects')}</p>

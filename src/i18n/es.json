@@ -8,27 +8,151 @@
     "hero": {
         "greeting": "Hola, soy",
         "name": "Oscar Crescente",
-        "title": "Desarrollador Web",
-        "subtitle": "Productos digitales de extremo a extremo. Desde UX/UI y backend hasta el App Store. Flutter, React, con IA, sin compromisos.",
+        "title": "Product Engineer",
+        "subtitle": "Convierto tu idea en un producto con una propuesta de valor imposible de negar: UI premium, backend escalable y mantenible.",
         "cta_projects": "Ver Proyectos",
         "cta_linkedin": "LinkedIn",
-        "cta_contact": "Contáctame"
+        "cta_contact": "Contáctame",
+        "disciplines": "Propuesta de valor · UI premium · Backend escalable",
+        "scroll": "Explora mi trabajo",
+        "motion_pause": "Pausar movimiento",
+        "motion_play": "Activar movimiento",
+        "factory": {
+            "label": "Línea de montaje: de la idea al producto",
+            "build": "Build",
+            "ai": "IA",
+            "rail": "Capítulos de la escena",
+            "open": "Ver {{name}}",
+            "chapters": [
+                {
+                    "kicker": "App iOS",
+                    "title": "SupaFilm",
+                    "line": "Teleprompter con guiones por IA y videos verticales listos para publicar."
+                },
+                {
+                    "kicker": "Juego en tiempo real",
+                    "title": "Mythika",
+                    "line": "Batallas de puzzle multijugador con Flutter, Supabase y Durable Objects."
+                },
+                {
+                    "kicker": "App open source",
+                    "title": "RepSet",
+                    "line": "Entrenamiento con más de 500 ejercicios, plantillas y un asistente de IA que arma rutinas."
+                },
+                {
+                    "kicker": "Plataforma web",
+                    "title": "Invitta",
+                    "line": "Invitaciones digitales con confirmaciones, asientos y coordinación del evento."
+                },
+                {
+                    "kicker": "Agente en Hermes",
+                    "title": "Minnie · U Factory",
+                    "line": "La CEO de la fábrica de contenido de Ultramare: planea, produce y rutea, corriendo sobre Hermes Agent.",
+                    "link": "Ve los resultados de la fábrica de contenido"
+                }
+            ]
+        }
+    },
+    "philosophy": {
+        "kicker": "Filosofía",
+        "heading": "Tu idea, convertida en un producto imposible de ignorar.",
+        "pillars": [
+            {
+                "title": "Propuesta de valor imposible de negar",
+                "text": "Antes de escribir código defino qué hace indispensable al producto, y lo llevo a cada pantalla y cada flujo."
+            },
+            {
+                "title": "UI premium",
+                "text": "Interfaces cuidadas al detalle, con diseño, motion y una experiencia que se siente de primer nivel desde el primer toque."
+            },
+            {
+                "title": "Backend escalable y mantenible",
+                "text": "Arquitectura limpia e infraestructura que crece con el negocio, sin deuda técnica que frene el siguiente paso."
+            }
+        ],
+        "closing": "Un servicio listo para recibir 100 MM$ de capital si es necesario.",
+        "closing_note": "Producto, diseño e ingeniería bajo un mismo criterio, de la idea al lanzamiento."
     },
     "about": {
-        "heading": "Sobre Mí",
-        "bio1": "Entrego productos digitales de extremo a extremo, cubriendo cada etapa desde el diseño UX/UI y la arquitectura backend hasta la publicación y estrategias de crecimiento. Mi experiencia abarca aplicaciones de productividad, entretenimiento, fitness, finanzas y salud.",
-        "bio2": "Proceso de desarrollo completo: sistemas de autenticación, diseño de base de datos, lógica de API, UI/UX intuitiva, animaciones fluidas y despliegue en App Store.",
-        "bio3": "Altamente capacitado en herramientas impulsadas por IA y aceleradores no-code, logrando resultados de élite a velocidad excepcional sin comprometer la calidad.",
-        "bio4": "Fluidez bilingüe en inglés y español, con gran adaptabilidad a cualquier ecosistema y flujo de trabajo del cliente.",
-        "skills_heading": "Habilidades y Herramientas",
-        "resume": "Descargar CV"
+        "heading": "Diseño, construyo y conecto.",
+        "bio1": "Soy Senior Product Engineer y fundador de Ultramare.dev. Llevo más de 5 años construyendo productos digitales, con Flutter y Dart como especialidad mobile y más de 15 años de experiencia en diseño visual y branding.",
+        "bio2": "Trabajo desde la estrategia y el UX/UI hasta la arquitectura, el backend y la publicación en App Store y Google Play. Diseño sistemas en tiempo real con Cloudflare, Supabase y WebSockets, y apps con arquitectura BLoC, Riverpod y Clean Architecture.",
+        "bio3": "También construyo automatizaciones y sistemas multiagente: GoHighLevel, Hermes, MCP y agent harnesses para conectar herramientas, modelos y flujos de trabajo.",
+        "bio4": "Trabajo de forma remota desde Venezuela, en español e inglés (C1), con una visión que une diseño, ingeniería y negocio.",
+        "skills_heading": "Mi caja de herramientas",
+        "resume": "Descargar CV",
+        "toolkit": {
+            "intro": "Las herramientas con las que diseño, construyo, publico y automatizo. Cada grupo enlaza a productos reales donde las uso.",
+            "used_in": "Usado en",
+            "workflow": "Mi flujo diario: Claude Code, Codex, Git y CI/CD, con publicación directa en App Store Connect y Google Play Console.",
+            "stats": [
+                {
+                    "value": "15+",
+                    "label": "años de diseño visual y branding"
+                },
+                {
+                    "value": "5+",
+                    "label": "años construyendo producto digital"
+                },
+                {
+                    "value": "4",
+                    "label": "años especializado en Flutter"
+                },
+                {
+                    "value": "ES · EN",
+                    "label": "español nativo, inglés C1"
+                }
+            ],
+            "groups": {
+                "mobile": {
+                    "title": "Mobile",
+                    "line": "Apps nativas para iOS y Android con Flutter, del primer wireframe a la publicación en tiendas: tiempo real, IA, modo offline y motion incluidos.",
+                    "sections": {
+                        "core": "Núcleo",
+                        "architecture": "Arquitectura",
+                        "data": "Datos y sync",
+                        "capabilities": "Capacidades",
+                        "motion": "Motion",
+                        "shipping": "Publicación"
+                    },
+                    "pipeline": [
+                        "Wireframe",
+                        "UI en Flutter",
+                        "Estado y datos",
+                        "Tiempo real e IA",
+                        "App Store · Google Play"
+                    ]
+                },
+                "web": {
+                    "title": "Web y frontend",
+                    "line": "Sitios y plataformas web rápidas, con interfaces interactivas cuando el producto lo pide."
+                },
+                "backend": {
+                    "title": "Backend y tiempo real",
+                    "line": "Datos, autenticación, multiplayer y sesiones en vivo sobre infraestructura serverless."
+                },
+                "ai": {
+                    "title": "IA y agentes",
+                    "line": "Modelos, tool calling y sistemas multiagente orquestados para trabajo real."
+                },
+                "automation": {
+                    "title": "Automatización y growth",
+                    "line": "Captación, seguimiento y operación automatizados de punta a punta."
+                },
+                "design": {
+                    "title": "Producto y diseño",
+                    "line": "Estrategia, UX/UI, sistemas de diseño y marca: el producto se ve como funciona."
+                }
+            }
+        }
     },
     "projects": {
         "heading": "Proyectos",
         "live": "Ver live",
         "code": "Código",
         "no_projects": "Próximamente…",
-        "more_work": "Más Proyectos"
+        "more_work": "Más Proyectos",
+        "intro": "Productos reales, en producción. En todos aplico la misma filosofía: valor claro, UI premium y un backend que escala."
     },
     "blog": {
         "heading": "Últimas Entradas",
@@ -39,7 +163,7 @@
     },
     "contact": {
         "heading": "Trabajemos juntos.",
-        "subtext": "Si necesitas un nuevo producto construido o al desarrollador indicado para hacerlo - puedo ayudarte.",
+        "subtext": "Cuéntame tu idea y la convertimos en un producto con una propuesta de valor imposible de negar, UI premium y un backend listo para escalar.",
         "email_cta": "Envíame un email",
         "whatsapp_cta": "Escríbeme por WhatsApp"
     },

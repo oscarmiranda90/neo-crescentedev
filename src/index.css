@@ -155,3 +155,166 @@
   0%   { transform: translateX(-100%); }
   100% { transform: translateX(100%); }
 }
+
+/* Landing: "the factory". Stack nodes feed a device that compiles each real build as you scroll. */
+.landing-hero {
+  --nav: 4rem;
+  --stage-h: calc(100svh - var(--nav));
+  position: relative;
+  overflow: clip;
+  border-bottom: 2px solid var(--border);
+}
+.landing-hero__grid { display: grid; grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr); gap: 2.5rem; }
+.landing-hero__copy { position: relative; height: var(--stage-h); min-height: 520px; display: flex; flex-direction: column; justify-content: center; z-index: 2; }
+.landing-hero__copy-body { padding-block: 2rem 4.5rem; }
+.hero-title { font-size: clamp(3rem, 5.6vw, 5.25rem); line-height: 1.02; letter-spacing: -0.035em; text-wrap: balance; animation: title-compose 800ms cubic-bezier(0.16, 1, 0.3, 1) both; }
+.hero-byline { margin-block: 1.75rem 1rem; }
+.hero-name { background: var(--main); color: var(--main-foreground); padding-inline: 0.2rem; box-decoration-break: clone; }
+.hero-actions { margin-top: 2rem; }
+.hero-foot { position: absolute; inset: auto 0 1.5rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding-top: 1rem; border-top: 1px solid color-mix(in oklab, var(--foreground) 20%, transparent); font-size: 0.8125rem; }
+
+.factory { min-width: 0; }
+.factory-stage { position: relative; height: var(--stage-h); min-height: 520px; display: flex; flex-direction: column; padding-block: 1.25rem 1rem; }
+
+.factory-hud { min-height: 6.25rem; animation: hud-in 420ms cubic-bezier(0.16, 1, 0.3, 1) both; }
+.factory-hud__meta { display: flex; gap: 0.5rem; font-family: var(--font-mono, ui-monospace, monospace); font-size: 0.6875rem; letter-spacing: 0.08em; text-transform: uppercase; }
+.factory-hud__meta span:first-child { background: var(--foreground); color: var(--background); padding-inline: 0.35rem; }
+.factory-hud__title { font-weight: 800; font-size: clamp(1.5rem, 2.4vw, 2.1rem); line-height: 1.1; letter-spacing: -0.03em; margin-top: 0.4rem; }
+.factory-hud__line { font-size: 0.875rem; max-width: 36ch; margin-top: 0.25rem; }
+
+.factory-scene {
+  --p: 0; --r0: 1; --r1: 0; --r2: 0; --r3: 0; --r4: 0; --scan: 0; --scan-o: 0; --kick: 0;
+  position: relative; flex: 1; min-height: 0; container-type: size; isolation: isolate;
+}
+.factory-scene::before {
+  content: ''; position: absolute; inset: 0; z-index: -2; pointer-events: none;
+  background-image: radial-gradient(color-mix(in oklab, var(--foreground) 22%, transparent) 1px, transparent 1.2px);
+  background-size: 18px 18px;
+  mask-image: radial-gradient(ellipse 75% 70% at 50% 50%, #000 55%, transparent 100%);
+}
+.factory-numeral { position: absolute; inset: 0; display: grid; place-items: center; z-index: -1; font-weight: 800; font-size: min(56cqh, 62cqw); line-height: 1; letter-spacing: -0.07em; color: transparent; -webkit-text-stroke: 2px var(--foreground); opacity: 0.16; transform: translateY(calc((0.5 - var(--p)) * 60px)); animation: numeral-in 650ms cubic-bezier(0.16, 1, 0.3, 1) both; pointer-events: none; user-select: none; }
+.factory-cables { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+
+.factory-node {
+  --lit: 0;
+  position: absolute; top: calc(14% + var(--row) * 22%);
+  transform: translateY(calc(-50% + (0.5 - var(--p)) * var(--depth) * 36px));
+  padding: 0.3rem 0.55rem; font-family: var(--font-mono, ui-monospace, monospace); font-size: clamp(0.5625rem, 2.4cqw, 0.75rem); font-weight: 700; white-space: nowrap;
+  border: 2px solid var(--border); background: var(--secondary-background); color: var(--foreground);
+  box-shadow: calc(var(--lit) * 3px) calc(var(--lit) * 3px) 0 var(--border);
+  transition: background 220ms ease, color 220ms ease;
+  animation: node-in 500ms cubic-bezier(0.16, 1, 0.3, 1) both; animation-delay: calc(120ms + var(--i) * 55ms);
+}
+.factory-node[data-side='left'] { left: 0; }
+.factory-node[data-side='right'] { right: 0; }
+.factory-node[data-lit='on'] { background: var(--main); color: var(--main-foreground); }
+.factory-node[data-lit='off'] { opacity: 0.72; }
+.factory-node::before { content: ''; display: inline-block; width: 6px; height: 6px; margin-right: 0.4rem; vertical-align: 0.1em; border: 1.5px solid currentColor; background: color-mix(in oklab, currentColor calc(var(--lit) * 100%), transparent); }
+
+.factory-rig { position: absolute; inset: 0; display: grid; place-items: center; perspective: 1100px; pointer-events: none; }
+.factory-phone {
+  /* iPhone 16 in teal: aluminium band, black bezel, Dynamic Island, side buttons. */
+  --pw: min(46cqw, 44cqh);
+  position: relative; width: var(--pw); pointer-events: auto;
+  padding: calc(var(--pw) * 0.014); border-radius: calc(var(--pw) * 0.17);
+  background: linear-gradient(150deg, #cfe7e4 0%, #7fb3ae 24%, #e4f3f1 47%, #5f948f 72%, #b5d8d4 100%);
+  /* While a build compiles, a mint double exposure slips off the device. */
+  box-shadow: inset 0 0 0 1px rgb(255 255 255 / 0.45), 10px 12px 0 -2px color-mix(in oklab, var(--foreground) 85%, transparent), calc(var(--kick) * -18px) calc(var(--kick) * -6px) 0 -2px var(--main);
+  transform: rotateX(4deg) rotateY(calc(-13deg + var(--p) * 26deg)) rotateZ(calc(var(--kick) * -2.5deg)) scale(calc(1 + var(--kick) * 0.04));
+  animation: phone-in 900ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+.factory-phone__buttons, .factory-phone__buttons::before, .factory-phone__buttons::after { position: absolute; pointer-events: none; }
+.factory-phone__buttons { inset: 0; }
+.factory-phone__buttons::before, .factory-phone__buttons::after { content: ''; width: calc(var(--pw) * 0.014); border-radius: 2px; background: #5f948f; }
+/* Left: action button + volume up/down. Right: side button + Camera Control. */
+.factory-phone__buttons::before { left: calc(var(--pw) * -0.012); top: 17%; height: 4.5%; box-shadow: 0 calc(var(--pw) * 0.17) 0 0 #5f948f, 0 calc(var(--pw) * 0.31) 0 0 #5f948f; }
+.factory-phone__buttons::after { right: calc(var(--pw) * -0.012); top: 26%; height: 10%; box-shadow: 0 calc(var(--pw) * 0.62) 0 calc(var(--pw) * -0.04) #5f948f; }
+.factory-screen { position: relative; aspect-ratio: 1179 / 2556; overflow: hidden; border: calc(var(--pw) * 0.03) solid #050505; border-radius: calc(var(--pw) * 0.156); background: var(--secondary-background); }
+.factory-island { position: absolute; z-index: 3; top: calc(var(--pw) * 0.025); left: 50%; width: 31%; height: calc(var(--pw) * 0.082); translate: -50% 0; border-radius: 999px; background: #000; }
+.factory-wire { position: absolute; inset: 0; display: grid; grid-template-rows: 6% 30% 9% 9% 9%; gap: 4%; padding: 14% 9%; background-image: linear-gradient(color-mix(in oklab, var(--main) 35%, transparent) 1px, transparent 1px), linear-gradient(90deg, color-mix(in oklab, var(--main) 35%, transparent) 1px, transparent 1px); background-size: 12px 12px; }
+.factory-wire i { border: 1.5px dashed color-mix(in oklab, var(--foreground) 45%, transparent); border-radius: 6px; }
+.factory-layer { position: absolute; inset: 0; overflow: hidden; }
+.factory-layer img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: top; }
+.factory-scan { position: absolute; z-index: 2; left: 0; right: 0; top: calc(var(--scan) * 100%); height: 2px; background: var(--main); opacity: var(--scan-o); box-shadow: 0 0 14px 4px var(--main); pointer-events: none; }
+.factory-scan::after { content: ''; position: absolute; left: 0; right: 0; top: 2px; height: 3.5rem; background: repeating-linear-gradient(180deg, color-mix(in oklab, var(--main) 70%, transparent) 0 1px, transparent 1px 4px), linear-gradient(180deg, color-mix(in oklab, var(--main) 45%, transparent), transparent); }
+/* Ultramare badge stamps onto the device when the Hermes agent compiles. */
+.factory-sticker { position: absolute; z-index: 4; top: -5%; right: -16%; width: 36%; height: auto; border: 2px solid var(--border); box-shadow: 4px 4px 0 var(--border); pointer-events: none; opacity: clamp(0, calc(var(--r4) * 3 - 1.6), 1); transform: rotate(9deg) scale(calc(1.6 - var(--r4) * 0.6)); }
+.factory-phone__hit { position: absolute; inset: 0; border-radius: inherit; }
+
+
+.factory-controls { display: flex; align-items: center; gap: 0.75rem; min-height: 2.75rem; margin-top: 0.75rem; }
+.factory-rail { display: flex; border: 2px solid var(--border); background: var(--secondary-background); }
+.factory-rail button { min-width: 2.75rem; height: 2.5rem; padding-inline: 0.5rem; font-family: var(--font-mono, ui-monospace, monospace); font-size: 0.75rem; font-weight: 700; transition: background 150ms ease; }
+.factory-rail button + button { border-left: 2px solid var(--border); }
+.factory-rail button:hover { background: color-mix(in oklab, var(--main) 35%, transparent); }
+.factory-rail button[aria-current='step'] { background: var(--main); color: var(--main-foreground); }
+.factory-open { display: inline-flex; align-items: center; gap: 0.25rem; margin-left: auto; max-width: 15rem; font-size: 0.8125rem; font-weight: 700; line-height: 1.25; text-align: right; text-decoration: underline; text-underline-offset: 4px; }
+.factory-open svg { flex-shrink: 0; }
+/* The content factory has no product page: its results live on TikTok, so that link is a real call to action. */
+.factory-open--cta { padding: 0.5rem 0.75rem; border: 2px solid var(--border); border-radius: var(--radius-base); background: var(--main); color: var(--main-foreground); text-decoration: none; box-shadow: 3px 3px 0 var(--border); }
+.scene-motion-toggle { display: grid; place-items: center; width: 40px; height: 40px; flex-shrink: 0; border: 2px solid var(--border); border-radius: 50%; background: var(--secondary-background); transition: background 150ms ease; }
+.scene-motion-toggle:hover { background: var(--main); }
+
+/* Entrances wait until the bench is first seen (below the fold on phones). */
+.factory-scene:not([data-entered]) :is(.factory-phone, .factory-node) { animation-play-state: paused; }
+.hero-foot button { white-space: nowrap; flex-shrink: 0; }
+@keyframes title-compose { from { clip-path: inset(0 0 100% 0); transform: translateY(12px); } to { clip-path: inset(0); transform: translateY(0); } }
+@keyframes hud-in { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+@keyframes numeral-in { from { clip-path: inset(100% 0 0 0); } to { clip-path: inset(0); } }
+@keyframes node-in { from { opacity: 0; scale: 0.6; } to { opacity: 1; scale: 1; } }
+@keyframes phone-in { from { opacity: 0; translate: 0 48px; rotate: x 30deg; } to { opacity: 1; translate: 0 0; rotate: x 0deg; } }
+
+@media (max-width: 1023px) {
+  .landing-hero__grid { grid-template-columns: minmax(0, 1fr); gap: 0; }
+  .landing-hero__copy { height: auto; min-height: 0; padding-block: 3rem 1.5rem; }
+  .landing-hero__copy-body { padding-block: 0; }
+  .hero-title { font-size: clamp(3rem, 9vw, 4.75rem); }
+  .hero-foot { position: static; margin-top: 2.5rem; }
+  .factory-stage { min-height: 480px; padding-block: 1rem 0.75rem; }
+  .factory-hud { min-height: 5.5rem; }
+}
+@media (max-width: 767px) {
+  .landing-hero__copy { padding-block: 2.25rem 1rem; }
+  .hero-title { font-size: clamp(2.75rem, 13vw, 4rem); }
+  .hero-byline { margin-block: 1.25rem 0.75rem; }
+  .hero-actions { margin-top: 1.5rem; gap: 0.75rem; }
+  .hero-foot { display: none; }
+  .factory-stage { height: auto; min-height: 0; }
+  .factory-scene { flex: none; height: min(120vw, 560px); }
+  .factory-hud__title { font-size: 1.375rem; }
+  .factory-hud__line { font-size: 0.8125rem; }
+  .factory-node { padding: 0.2rem 0.35rem; }
+  .factory-node::before { display: none; }
+  .factory-rail button { min-width: 2.5rem; }
+  .factory-phone { box-shadow: inset 0 0 0 1px rgb(255 255 255 / 0.45), 6px 8px 0 -2px color-mix(in oklab, var(--foreground) 85%, transparent), calc(var(--kick) * -10px) calc(var(--kick) * -4px) 0 -2px var(--main); }
+}
+
+@media (max-width: 479px) {
+  .factory-controls { flex-wrap: wrap; }
+  .factory-open { order: 3; flex-basis: 100%; max-width: none; justify-content: flex-start; margin-left: 0; text-align: left; }
+  .scene-motion-toggle { margin-left: auto; }
+}
+@media (max-width: 380px) {
+  .factory-controls { gap: 0.5rem; }
+  .factory-rail button { min-width: 1.875rem; padding-inline: 0.2rem; }
+  .factory-open { font-size: 0.75rem; }
+  .scene-motion-toggle { width: 36px; height: 36px; }
+}
+/* Paused: chapters stop rolling and packets freeze; the rail still switches builds instantly. */
+/* Reduced motion: no autoplay, no camera; the rail swaps builds in place as a still storyboard. */
+.landing-hero.is-reduced .factory-phone,
+.landing-hero.is-reduced .factory-node,
+.landing-hero.is-reduced .factory-numeral { transform: none; }
+.landing-hero.is-reduced .factory-node { transform: translateY(-50%); }
+.landing-hero.is-reduced .factory-scan { display: none; }
+@media (prefers-reduced-motion: reduce) {
+  .landing-hero *, .landing-hero *::before, .landing-hero *::after { animation: none !important; }
+  .landing-hero .factory-node { transition: none; }
+  .animate-spin-slow, .animate-spin-slow-reverse, .animate-float { animation: none !important; }
+  span[style*='spin-slow'] { animation: none !important; }
+}
+/* Give the authored opening space; supporting sections stay still and readable. */
+.landing-page .reveal { opacity: 1; transform: none; animation: none !important; will-change: auto; }
+.landing-page span[style*='spin-slow'] { animation: none !important; }
+.landing-page ::selection { background: var(--foreground); color: var(--background); }
+.landing-page :is(a, button):focus-visible { outline: 2px solid var(--foreground); outline-offset: 4px; }
